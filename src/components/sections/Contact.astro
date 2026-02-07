@@ -38,14 +38,6 @@ const { t, config, whatsappHref } = Astro.props;
               </dd>
             </div>
             <div>
-              <dt class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{t('contact.labels.locations')}</dt>
-              <dd class="mt-1 font-medium text-slate-900">
-                {config.contact.locations.map((location) => (
-                  <p>{location.label}</p>
-                ))}
-              </dd>
-            </div>
-            <div>
               <dt class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{t('contact.labels.email')}</dt>
               <dd class="mt-1 font-medium text-slate-900">{config.contact.email}</dd>
             </div>
@@ -71,7 +63,7 @@ const { t, config, whatsappHref } = Astro.props;
                   title={`${t('contact.mapCardTitle')} - ${location.label}`}
                   src={location.mapEmbedUrl}
                   loading="lazy"
-                  class="h-52 w-full border-0"
+                  class="h-48 w-full border-0 sm:h-52"
                   referrerpolicy="no-referrer-when-downgrade"
                   allowfullscreen
                 ></iframe>

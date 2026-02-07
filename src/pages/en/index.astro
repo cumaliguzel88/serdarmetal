@@ -5,12 +5,10 @@ import FloatingCallButton from '../../components/ui/FloatingCallButton.astro';
 import Gallery from '../../components/sections/Gallery.astro';
 import Header from '../../components/sections/Header.astro';
 import Hero from '../../components/sections/Hero.astro';
-import Process from '../../components/sections/Process.astro';
 import Services from '../../components/sections/Services.astro';
 import WhyUs from '../../components/sections/WhyUs.astro';
 import Footer from '../../components/sections/Footer.astro';
 import { galleryItems } from '../../content/gallery';
-import { processSteps } from '../../content/process';
 import { serviceEntries } from '../../content/services';
 import { siteConfig } from '../../content/site.config';
 import BaseLayout from '../../layouts/BaseLayout.astro';
@@ -36,7 +34,6 @@ const whatsappHref = createWhatsAppHref(siteConfig.contact.whatsappPhone, t('con
     <Hero t={t} config={siteConfig} whatsappHref={whatsappHref} />
     <Services t={t} services={serviceEntries} />
     <WhyUs t={t} />
-    <Process t={t} steps={processSteps} />
     <Gallery t={t} items={galleryItems} />
     <About t={t} />
     <Contact t={t} config={siteConfig} whatsappHref={whatsappHref} />
@@ -45,7 +42,7 @@ const whatsappHref = createWhatsAppHref(siteConfig.contact.whatsappPhone, t('con
 
   <Footer t={t} config={siteConfig} />
 
-  <script type="module">
+  <script>
     import '../../scripts/main';
   </script>
 </BaseLayout>

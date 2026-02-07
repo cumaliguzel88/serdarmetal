@@ -16,15 +16,15 @@ const enHref = lang === 'en' ? './' : 'en/';
 
 <header class="sticky top-0 z-50 border-b border-slate-200/70 bg-white/88 backdrop-blur-xl shadow-[0_8px_22px_rgba(15,23,42,0.06)]">
   <Container>
-    <div class="flex min-h-[7.5rem] items-center justify-between gap-4">
-      <a href="#hero" class="inline-flex items-center gap-3" aria-label={t('site.name')}>
+    <div class="flex min-h-[5.25rem] items-center justify-between gap-2 sm:min-h-[6.25rem] sm:gap-3 lg:min-h-[7rem] lg:gap-4">
+      <a href="#hero" class="inline-flex items-center gap-2 sm:gap-3" aria-label={t('site.name')}>
         <img
           src={logoImage.src}
           alt={t('site.name')}
-          class="h-[4.5rem] w-auto max-w-[210px] object-contain sm:h-[6rem] sm:max-w-[260px]"
+          class="h-12 w-auto max-w-[140px] object-contain sm:h-14 sm:max-w-[180px] lg:h-[4.25rem] lg:max-w-[220px]"
           loading="eager"
         />
-        <span class="font-display text-sm font-bold uppercase tracking-[0.22em] text-slate-900 sm:text-base">{t('header.logo')}</span>
+        <span class="hidden font-display text-sm font-bold uppercase tracking-[0.2em] text-slate-900 lg:inline">{t('header.logo')}</span>
       </a>
 
       <nav class="hidden items-center gap-6 md:flex" aria-label={t('header.navAria')}>
@@ -59,8 +59,9 @@ const enHref = lang === 'en' ? './' : 'en/';
           </a>
         </div>
 
-        <Button href={whatsappHref} variant="whatsapp" ariaLabel={t('contact.labels.whatsapp')} class="hidden sm:inline-flex">
-          {t('header.cta')}
+        <Button href={whatsappHref} variant="whatsapp" ariaLabel={t('contact.labels.whatsapp')} class="inline-flex px-3 sm:px-5">
+          <span class="sm:hidden">{t('header.ctaShort')}</span>
+          <span class="hidden sm:inline">{t('header.cta')}</span>
         </Button>
       </div>
     </div>
