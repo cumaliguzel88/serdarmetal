@@ -1,1 +1,40 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+@import 'tailwindcss';
+
+:root {
+  --color-accent: #c2002f;
+  --color-accent-strong: #a00027;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #ffffff;
+  color: #0f172a;
+  font-family: 'Manrope', 'Segoe UI', sans-serif;
+}
+
+.font-display {
+  font-family: 'Space Grotesk', 'Manrope', sans-serif;
+}
+
+::selection {
+  background: rgba(194, 0, 47, 0.16);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

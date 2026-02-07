@@ -1,0 +1,27 @@
+---
+import Container from '../ui/Container.astro';
+import SectionTitle from '../ui/SectionTitle.astro';
+
+interface Props {
+  t: <T = string>(key: string) => T;
+}
+
+const { t } = Astro.props;
+const paragraphs = t<string[]>('about.content');
+---
+
+<section id="hakkimizda" class="scroll-mt-28 py-16 sm:py-20" data-animate-group>
+  <Container>
+    <div class="space-y-8">
+      <SectionTitle eyebrow={t('about.eyebrow')} title={t('about.title')} />
+
+      <article class="rounded-3xl border border-slate-200 bg-white p-6 shadow-[0_8px_22px_rgba(148,163,184,0.14)] sm:p-8">
+        <div class="space-y-5 text-sm leading-8 text-slate-700 sm:text-base">
+          {paragraphs.map((paragraph) => (
+            <p data-animate-item>{paragraph}</p>
+          ))}
+        </div>
+      </article>
+    </div>
+  </Container>
+</section>

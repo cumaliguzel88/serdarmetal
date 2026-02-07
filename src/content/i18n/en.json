@@ -1,0 +1,169 @@
+{
+  "meta": {
+    "title": "Serdar Metal Recycling",
+    "description": "Scrap metal purchasing, dismantling, and recycling services across Thrace.",
+    "ogTitle": "Serdar Metal Recycling",
+    "ogDescription": "On-site pickup, fair pricing, and fast process management for recycling operations.",
+    "ogImage": "/favicon.svg"
+  },
+  "site": {
+    "name": "Serdar Metal"
+  },
+  "header": {
+    "logo": "Serdar Metal",
+    "nav": {
+      "services": "Services",
+      "about": "About",
+      "contact": "Contact"
+    },
+    "cta": "WhatsApp",
+    "langLabel": "Language",
+    "navAria": "Main navigation",
+    "langTr": "TR",
+    "langEn": "EN"
+  },
+  "hero": {
+    "eyebrow": "Recycling services across Thrace",
+    "title": "We manage your scrap metal process fast, transparently, and safely.",
+    "description": "Serdar Metal handles the full flow from on-site inspection to transport with a fair-pricing approach and one-point coordination.",
+    "ctaCall": "Call Now",
+    "ctaWhatsapp": "WhatsApp",
+    "mediaPlaceholder": "Hero media area (coming soon)"
+  },
+  "services": {
+    "eyebrow": "Services",
+    "title": "Scrap metal purchasing and dismantling services",
+    "description": "Select a card to review detailed service content in the panel below.",
+    "detailTitle": "Service Detail",
+    "detailHint": "The detail panel updates based on the selected service.",
+    "items": {
+      "aluminum": {
+        "title": "Aluminum",
+        "summary": "Aluminum scrap trading is a highly important area in industry, and aluminum is widely used across many sectors.",
+        "detail": [
+          "Aluminum scrap trading is a highly important area in industry, and aluminum is widely used across many sectors. From beverage cans to automotive components, aluminum is used in a broad range of applications. Through recycling, it becomes reusable, enabling more efficient use of resources. Our company specializes in this field in the Thrace region and provides aluminum scrap purchasing and trading services.",
+          "In aluminum scrap operations, we adopt high-quality service as a core principle. We meet customer needs through loading, unloading, sorting, baling, storage, and shipment services. You can contact us for aluminum scrap purchasing and complete your transaction with competitive pricing. Our professional teams buy your aluminum scrap on-site at fair value and transport it to our processing facilities.",
+          "Aluminum production is a critical topic in terms of sustainability, and recycling waste aluminum delivers both environmental and economic benefits. Our company purchases idle scrap aluminum and brings it back into the recycling chain. Contact us for information and a price quote."
+        ]
+      },
+      "copper": {
+        "title": "Copper",
+        "summary": "Copper is a widely used metal in industrial activities, and its recycling carries major importance.",
+        "detail": [
+          "Copper is a widely used metal in industrial activities, and its recycling carries major importance. For this reason, copper scrap purchasing and trading is significant both economically and environmentally. Our company serves the Thrace region with teams specialized in this field. We can support you with on-site copper scrap purchasing at fair value.",
+          "You can get the most competitive prices from us for stripped copper scrap purchasing. Contact us for up-to-date copper scrap pricing and detailed information about our services. We purchase scrap across Thrace and provide processing, separation, baling, and transport services. The copper we purchase is separated at our facilities and returned to the recycling economy.",
+          "You can contact our company for your scrap copper or stripped copper needs. Copper is a strategically important material used in many industries. We are pleased to serve you as the right address for high-quality scrap copper at fair prices. Contact us for information and a price quote."
+        ]
+      },
+      "steel": {
+        "title": "Ferrous Scrap Purchasing",
+        "summary": "Iron is one of the most recycled metals worldwide and has critical importance, especially in construction.",
+        "detail": [
+          "Our company has been operating successfully in ferrous scrap purchasing and trading for many years. Iron is one of the most recycled metals worldwide and is especially important in the construction sector. Therefore, obtaining required iron materials in a cost-efficient way is essential.",
+          "By choosing recycled iron for your construction projects, you can protect your budget while contributing to the environment. You can also contact us for on-site purchasing of ferrous scrap at fair value.",
+          "Our experienced teams perform on-site pickup for all ferrous scrap types and provide fair-value purchasing regardless of volume. We serve the Thrace region and are pleased to support our customers through ferrous scrap operations. We also provide additional services such as scrap metal separation, baling, and transport. Contact us for information and a price quote."
+        ]
+      },
+      "stainless": {
+        "title": "Stainless (Chrome Scrap Purchasing)",
+        "summary": "Chrome is widely used in industry but is relatively rare in nature.",
+        "detail": [
+          "Chrome is widely used in industry but is relatively rare in nature. Extracting and processing chrome from natural sources is a challenging process. For this reason, chrome recycling and reuse are highly important for efficient resource utilization.",
+          "Through our chrome scrap purchasing and trading operations, our company helps this valuable resource re-enter the economy. Active in Thrace for many years, we are specialized in chrome scrap operations. You can rely on our professional team for loading, unloading, sorting, baling, storage, and shipment processes. We provide strong price offers for all your chrome scrap.",
+          "Our expert teams perform on-site, fair-value chrome scrap pickup and also provide additional services such as chrome separation. Contact us for reusable chrome scrap sales and competitive pricing. With our customer-focused approach, we are pleased to deliver high-quality service. Contact us for information and a price quote."
+        ]
+      },
+      "brass": {
+        "title": "Yellow Brass Scrap Purchasing",
+        "summary": "Our company holds a leading position in yellow metal recycling and is a trusted name for yellow scrap purchasing across Thrace.",
+        "detail": [
+          "Our company holds a leading position in yellow metal recycling and is a trusted name for yellow scrap purchasing across Thrace. Our professional teams are ready to complete your yellow scrap transactions quickly and efficiently. We are here to provide high-quality service at competitive prices.",
+          "You can rely on us for yellow scrap purchasing and cover all your yellow metal needs. By prioritizing customer satisfaction, we work to simplify the purchase process and deliver the best possible service. With an environmentally conscious approach, we contribute to protecting natural resources and leaving a more livable world for future generations.",
+          "Contact us to benefit from our yellow scrap purchasing and trading services and to get more information. We are pleased to support you with economical and environmentally friendly solutions. Contact us for information and a price quote."
+        ]
+      },
+      "plant": {
+        "title": "Facility Dismantling",
+        "summary": "When factories and facilities reach end-of-life, dismantling requires serious expertise.",
+        "detail": [
+          "When factories and facilities reach end-of-life, dismantling requires serious expertise. As Serdar Metal Recycling, we are pleased to support you with our long-standing experience in this field. Contact us now and let us start your factory dismantling operations.",
+          "Our expert teams carry out factory and facility dismantling with precision. Scrap metals are processed through specialized workflows and reintegrated into the economy. We also provide services such as scrap metal purchasing and trading.",
+          "With services covering the entire metal processing cycle, we serve every part of Thrace. We are here to provide tailored solutions and process your scrap metals in the best possible way. Feel free to contact us. We are happy to help. Contact us for information and a price quote."
+        ]
+      }
+    }
+  },
+  "whyUs": {
+    "eyebrow": "Why Us",
+    "title": "Fast in the field, disciplined in operations",
+    "items": [
+      {
+        "title": "On-site pickup",
+        "description": "We inspect and receive your scrap directly from your location."
+      },
+      {
+        "title": "Fair pricing",
+        "description": "We apply transparent pricing based on current market data."
+      },
+      {
+        "title": "Coverage across Thrace",
+        "description": "From our Tekirdag base, we serve all districts and industrial zones in Thrace."
+      },
+      {
+        "title": "Regulatory compliance",
+        "description": "We run all purchasing, transport, and separation processes in line with legal regulations."
+      }
+    ]
+  },
+  "process": {
+    "eyebrow": "Process",
+    "title": "Operations in three steps",
+    "contact": {
+      "title": "Contact",
+      "description": "We receive your request via phone or WhatsApp and clarify the scope of operation."
+    },
+    "pricing": {
+      "title": "Inspection / Pricing",
+      "description": "We conduct on-site assessment and prepare an offer based on volume, metal type, and logistics needs."
+    },
+    "delivery": {
+      "title": "Pickup / Transport / Separation",
+      "description": "With the approved plan, we complete pickup, transport, and separation safely and on time."
+    }
+  },
+  "gallery": {
+    "eyebrow": "References / Gallery",
+    "title": "Operational snapshots from the field",
+    "description": "This area will soon include visuals from facility dismantling and scrap pickup operations.",
+    "placeholder": "Gallery area (visuals coming soon)"
+  },
+  "about": {
+    "eyebrow": "About",
+    "title": "Continuous improvement in recycling since 1990",
+    "content": [
+      "Serdar Metal Recycling started operations in Istanbul in 1990 and has continued to serve with environmental awareness and an innovative perspective ever since. In 2010, with the branch we opened in Tekirdag, we started to grow and expand our impact across a wider geography. Today, with our advanced equipment and expert team, we hold a leading position in the recycling sector.",
+      "We collect metal waste such as iron, steel, copper, lead, yellow scrap, chrome, nickel, and aluminum from every part of Thrace. We contribute not only to the economy but also to the protection of natural resources. In addition to scrap metal sorting services, our company also performs dismantling works and brings scrap metals back into the economy.",
+      "As Serdar Metal Recycling, we carry out all our activities in compliance with legal regulations and align with all sector requirements. To provide the best service to our customers, we continuously renew and improve ourselves. If you are looking for environmentally friendly and economical solutions, feel free to contact us."
+    ]
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Reach us for quotation and information",
+    "description": "You can quickly reach us via phone, WhatsApp, or email.",
+    "labels": {
+      "phone": "Phone",
+      "whatsapp": "WhatsApp",
+      "address": "Address",
+      "email": "Email",
+      "hours": "Working Hours"
+    },
+    "ctaCall": "Call Now",
+    "ctaFloatingCall": "Call Now",
+    "ctaWhatsapp": "Message on WhatsApp",
+    "whatsappPrefill": "Hello, I am reaching out via your website. I would like to get more information.",
+    "mapPlaceholder": "Google Maps embed area (coming soon)"
+  },
+  "footer": {
+    "note": "Serdar Metal Recycling"
+  }
+}

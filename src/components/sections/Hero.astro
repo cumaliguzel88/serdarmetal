@@ -1,0 +1,41 @@
+---
+import Button from '../ui/Button.astro';
+import Container from '../ui/Container.astro';
+import type { SiteConfig } from '../../content/site.config';
+
+interface Props {
+  t: <T = string>(key: string) => T;
+  config: SiteConfig;
+  whatsappHref: string;
+}
+
+const { t, config, whatsappHref } = Astro.props;
+---
+
+<section id="hero" class="scroll-mt-28 py-16 sm:py-20 lg:py-24" data-animate-group>
+  <Container>
+    <div class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+      <div class="space-y-7">
+        <p class="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--color-accent)]" data-animate-item>{t('hero.eyebrow')}</p>
+        <h1 class="font-display text-4xl font-bold leading-tight tracking-tight text-slate-900 sm:text-5xl" data-animate-item>
+          {t('hero.title')}
+        </h1>
+        <p class="max-w-2xl text-base leading-8 text-slate-600 sm:text-lg" data-animate-item>{t('hero.description')}</p>
+
+        <div class="flex flex-wrap items-center gap-3" data-animate-item>
+          <Button href={config.contact.phoneHref} ariaLabel={t('contact.labels.phone')}>
+            {t('hero.ctaCall')}
+          </Button>
+          <Button href={whatsappHref} variant="whatsapp" ariaLabel={t('contact.labels.whatsapp')}>
+            {t('hero.ctaWhatsapp')}
+          </Button>
+        </div>
+      </div>
+
+      <div class="rounded-3xl border border-dashed border-slate-300 bg-[linear-gradient(150deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_55%,rgba(255,237,242,0.65)_100%)] p-6 shadow-[0_20px_40px_rgba(148,163,184,0.2)]" data-animate-item>
+        <div class="aspect-[5/4] rounded-2xl border border-slate-200/80 bg-white/80"></div>
+        <p class="mt-4 text-center text-sm text-slate-500">{t('hero.mediaPlaceholder')}</p>
+      </div>
+    </div>
+  </Container>
+</section>

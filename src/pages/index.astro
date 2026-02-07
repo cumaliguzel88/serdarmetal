@@ -1,18 +1,55 @@
 ---
-import "../styles/global.css";
+import About from '../components/sections/About.astro';
+import Contact from '../components/sections/Contact.astro';
+import FloatingCallButton from '../components/ui/FloatingCallButton.astro';
+import Gallery from '../components/sections/Gallery.astro';
+import Header from '../components/sections/Header.astro';
+import Hero from '../components/sections/Hero.astro';
+import Process from '../components/sections/Process.astro';
+import Services from '../components/sections/Services.astro';
+import WhyUs from '../components/sections/WhyUs.astro';
+import Container from '../components/ui/Container.astro';
+import { galleryItems } from '../content/gallery';
+import { processSteps } from '../content/process';
+import { serviceEntries } from '../content/services';
+import { siteConfig } from '../content/site.config';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { createWhatsAppHref } from '../scripts/contact-links';
+import { createTranslator, resolveLanguageFromUrl } from '../scripts/i18n/translator';
 
+const lang = resolveLanguageFromUrl(Astro.url);
+const t = createTranslator(lang);
+const whatsappHref = createWhatsAppHref(siteConfig.contact.whatsappPhone, t('contact.whatsappPrefill'));
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout
+  lang={lang}
+  title={t('meta.title')}
+  description={t('meta.description')}
+  ogTitle={t('meta.ogTitle')}
+  ogDescription={t('meta.ogDescription')}
+  ogImage={t('meta.ogImage')}
+  canonicalBase={siteConfig.canonicalBase}
+>
+  <Header t={t} lang={lang} whatsappHref={whatsappHref} />
+  <main>
+    <Hero t={t} config={siteConfig} whatsappHref={whatsappHref} />
+    <Services t={t} services={serviceEntries} />
+    <WhyUs t={t} />
+    <Process t={t} steps={processSteps} />
+    <Gallery t={t} items={galleryItems} />
+    <About t={t} />
+    <Contact t={t} config={siteConfig} whatsappHref={whatsappHref} />
+  </main>
+  <FloatingCallButton href={siteConfig.contact.phoneHref} label={t('contact.ctaFloatingCall')} ariaLabel={t('contact.labels.phone')} />
+
+  <footer class="border-t border-slate-200 py-8">
+    <Container>
+      <p class="text-center text-sm font-medium text-slate-500">{t('footer.note')}</p>
+    </Container>
+  </footer>
+
+  <script type="module">
+    import '../scripts/main';
+  </script>
+</BaseLayout>

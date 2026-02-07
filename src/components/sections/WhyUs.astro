@@ -1,0 +1,36 @@
+---
+import Container from '../ui/Container.astro';
+import SectionTitle from '../ui/SectionTitle.astro';
+import Card from '../ui/Card.astro';
+
+interface WhyUsItem {
+  title: string;
+  description: string;
+}
+
+interface Props {
+  t: <T = string>(key: string) => T;
+}
+
+const { t } = Astro.props;
+const items = t<WhyUsItem[]>('whyUs.items');
+---
+
+<section id="neden-biz" class="scroll-mt-28 py-16 sm:py-20" data-animate-group>
+  <Container>
+    <div class="space-y-8">
+      <SectionTitle eyebrow={t('whyUs.eyebrow')} title={t('whyUs.title')} />
+
+      <div class="grid gap-4 md:grid-cols-2">
+        {items.map((item) => (
+          <Card>
+            <div data-animate-item>
+              <h3 class="font-display text-xl font-semibold text-slate-900">{item.title}</h3>
+              <p class="mt-2 text-sm leading-7 text-slate-600 sm:text-base">{item.description}</p>
+            </div>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </Container>
+</section>

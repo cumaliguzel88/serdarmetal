@@ -1,0 +1,67 @@
+---
+import Button from '../ui/Button.astro';
+import Container from '../ui/Container.astro';
+import logoImage from '../../../assets/serdarmetallogo.png';
+
+interface Props {
+  t: <T = string>(key: string) => T;
+  lang: 'tr' | 'en';
+  whatsappHref: string;
+}
+
+const { t, lang, whatsappHref } = Astro.props;
+const langQuery = lang === 'en' ? '?lang=en' : '?lang=tr';
+---
+
+<header class="sticky top-0 z-50 border-b border-slate-200/70 bg-white/88 backdrop-blur-xl shadow-[0_8px_22px_rgba(15,23,42,0.06)]">
+  <Container>
+    <div class="flex min-h-[7.5rem] items-center justify-between gap-4">
+      <a href={`${langQuery}#hero`} class="inline-flex items-center gap-3" aria-label={t('site.name')}>
+        <img
+          src={logoImage.src}
+          alt={t('site.name')}
+          class="h-[4.5rem] w-auto max-w-[210px] object-contain sm:h-[6rem] sm:max-w-[260px]"
+          loading="eager"
+        />
+        <span class="font-display text-sm font-bold uppercase tracking-[0.22em] text-slate-900 sm:text-base">{t('header.logo')}</span>
+      </a>
+
+      <nav class="hidden items-center gap-6 md:flex" aria-label={t('header.navAria')}>
+        <a href={`${langQuery}#hizmetler`} class="text-sm font-medium text-slate-700 transition hover:text-[var(--color-accent)]">{t('header.nav.services')}</a>
+        <a href={`${langQuery}#hakkimizda`} class="text-sm font-medium text-slate-700 transition hover:text-[var(--color-accent)]">{t('header.nav.about')}</a>
+        <a href={`${langQuery}#iletisim`} class="text-sm font-medium text-slate-700 transition hover:text-[var(--color-accent)]">{t('header.nav.contact')}</a>
+      </nav>
+
+      <div class="flex items-center gap-2 sm:gap-3">
+        <div class="inline-flex rounded-full border border-slate-300 p-1">
+          <a
+            href="?lang=tr"
+            data-lang-switch="tr"
+            class:list={[
+              'rounded-full px-3 py-1 text-xs font-semibold transition',
+              lang === 'tr' ? 'bg-slate-900 text-white' : 'text-slate-600 hover:text-slate-900'
+            ]}
+            aria-label={`${t('header.langLabel')} ${t('header.langTr')}`}
+          >
+            {t('header.langTr')}
+          </a>
+          <a
+            href="?lang=en"
+            data-lang-switch="en"
+            class:list={[
+              'rounded-full px-3 py-1 text-xs font-semibold transition',
+              lang === 'en' ? 'bg-slate-900 text-white' : 'text-slate-600 hover:text-slate-900'
+            ]}
+            aria-label={`${t('header.langLabel')} ${t('header.langEn')}`}
+          >
+            {t('header.langEn')}
+          </a>
+        </div>
+
+        <Button href={whatsappHref} variant="whatsapp" ariaLabel={t('contact.labels.whatsapp')} class="hidden sm:inline-flex">
+          {t('header.cta')}
+        </Button>
+      </div>
+    </div>
+  </Container>
+</header>

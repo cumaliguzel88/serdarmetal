@@ -1,0 +1,34 @@
+---
+type Variant = 'primary' | 'secondary' | 'ghost' | 'whatsapp';
+
+interface Props {
+  href: string;
+  variant?: Variant;
+  class?: string;
+  ariaLabel?: string;
+}
+
+const { href, variant = 'primary', class: className = '', ariaLabel } = Astro.props;
+
+const variants: Record<Variant, string> = {
+  primary:
+    'bg-[var(--color-accent)] text-white shadow-[0_10px_28px_rgba(194,0,47,0.32)] hover:bg-[var(--color-accent-strong)]',
+  secondary:
+    'border border-slate-300 bg-white text-slate-900 hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]',
+  ghost: 'text-slate-700 hover:text-[var(--color-accent)]',
+  whatsapp:
+    'border border-[#22c55e] bg-white text-[#15803d] hover:border-[#22c55e] hover:bg-[#22c55e] hover:text-white'
+};
+---
+
+<a
+  href={href}
+  aria-label={ariaLabel}
+  class:list={[
+    'inline-flex min-h-11 items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold tracking-wide transition duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]',
+    variants[variant],
+    className
+  ]}
+>
+  <slot />
+</a>

@@ -1,0 +1,66 @@
+---
+import Button from '../ui/Button.astro';
+import Container from '../ui/Container.astro';
+import SectionTitle from '../ui/SectionTitle.astro';
+import type { SiteConfig } from '../../content/site.config';
+
+interface Props {
+  t: <T = string>(key: string) => T;
+  config: SiteConfig;
+  whatsappHref: string;
+}
+
+const { t, config, whatsappHref } = Astro.props;
+---
+
+<section id="iletisim" class="scroll-mt-28 py-16 sm:py-20" data-animate-group>
+  <Container>
+    <div class="space-y-8">
+      <SectionTitle eyebrow={t('contact.eyebrow')} title={t('contact.title')} description={t('contact.description')} />
+
+      <div class="grid gap-5 lg:grid-cols-[0.95fr_1.05fr]">
+        <div data-animate-item class="rounded-3xl border border-slate-200 bg-white p-6 shadow-[0_12px_24px_rgba(148,163,184,0.14)] sm:p-7">
+          <dl class="space-y-4 text-sm text-slate-700 sm:text-base">
+            <div>
+              <dt class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{t('contact.labels.phone')}</dt>
+              <dd class="mt-1 font-medium text-slate-900">{config.contact.phone}</dd>
+            </div>
+            <div>
+              <dt class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{t('contact.labels.whatsapp')}</dt>
+              <dd class="mt-1 font-medium text-slate-900">{config.contact.whatsapp}</dd>
+            </div>
+            <div>
+              <dt class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{t('contact.labels.address')}</dt>
+              <dd class="mt-1 font-medium text-slate-900">
+                {config.contact.addressLines.map((line) => (
+                  <p>{line}</p>
+                ))}
+              </dd>
+            </div>
+            <div>
+              <dt class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{t('contact.labels.email')}</dt>
+              <dd class="mt-1 font-medium text-slate-900">{config.contact.email}</dd>
+            </div>
+            <div>
+              <dt class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{t('contact.labels.hours')}</dt>
+              <dd class="mt-1 font-medium text-slate-900">{config.contact.hours}</dd>
+            </div>
+          </dl>
+
+          <div class="mt-6 flex flex-wrap gap-3">
+            <Button href={config.contact.phoneHref} ariaLabel={t('contact.labels.phone')}>{t('contact.ctaCall')}</Button>
+            <Button href={whatsappHref} variant="whatsapp" ariaLabel={t('contact.labels.whatsapp')}>
+              {t('contact.ctaWhatsapp')}
+            </Button>
+          </div>
+        </div>
+
+        <div data-animate-item class="rounded-3xl border border-dashed border-slate-300 bg-slate-50 p-4 sm:p-5">
+          <div class="flex h-full min-h-72 items-center justify-center rounded-2xl border border-slate-200 bg-white px-4 text-center text-sm font-medium text-slate-500 sm:min-h-80">
+            {t('contact.mapPlaceholder')}
+          </div>
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>
