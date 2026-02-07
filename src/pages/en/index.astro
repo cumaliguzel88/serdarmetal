@@ -1,0 +1,51 @@
+---
+import About from '../../components/sections/About.astro';
+import Contact from '../../components/sections/Contact.astro';
+import FloatingCallButton from '../../components/ui/FloatingCallButton.astro';
+import Gallery from '../../components/sections/Gallery.astro';
+import Header from '../../components/sections/Header.astro';
+import Hero from '../../components/sections/Hero.astro';
+import Process from '../../components/sections/Process.astro';
+import Services from '../../components/sections/Services.astro';
+import WhyUs from '../../components/sections/WhyUs.astro';
+import Footer from '../../components/sections/Footer.astro';
+import { galleryItems } from '../../content/gallery';
+import { processSteps } from '../../content/process';
+import { serviceEntries } from '../../content/services';
+import { siteConfig } from '../../content/site.config';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { createWhatsAppHref } from '../../scripts/contact-links';
+import { createTranslator } from '../../scripts/i18n/translator';
+
+const lang = 'en' as const;
+const t = createTranslator(lang);
+const whatsappHref = createWhatsAppHref(siteConfig.contact.whatsappPhone, t('contact.whatsappPrefill'));
+---
+
+<BaseLayout
+  lang={lang}
+  title={t('meta.title')}
+  description={t('meta.description')}
+  ogTitle={t('meta.ogTitle')}
+  ogDescription={t('meta.ogDescription')}
+  ogImage={t('meta.ogImage')}
+  canonicalBase={siteConfig.canonicalBase}
+>
+  <Header t={t} lang={lang} whatsappHref={whatsappHref} />
+  <main>
+    <Hero t={t} config={siteConfig} whatsappHref={whatsappHref} />
+    <Services t={t} services={serviceEntries} />
+    <WhyUs t={t} />
+    <Process t={t} steps={processSteps} />
+    <Gallery t={t} items={galleryItems} />
+    <About t={t} />
+    <Contact t={t} config={siteConfig} whatsappHref={whatsappHref} />
+  </main>
+  <FloatingCallButton href={siteConfig.contact.phoneHref} label={t('contact.ctaFloatingCall')} ariaLabel={t('contact.labels.phone')} />
+
+  <Footer t={t} config={siteConfig} />
+
+  <script type="module">
+    import '../../scripts/main';
+  </script>
+</BaseLayout>

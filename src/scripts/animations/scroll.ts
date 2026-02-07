@@ -19,15 +19,18 @@ export function initScrollAnimations() {
       return;
     }
 
-    gsap.from(items, {
-      opacity: 0,
-      y: 24,
-      duration: 0.6,
+    gsap.set(items, { opacity: 0, y: 36 });
+
+    gsap.to(items, {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
       ease: 'power2.out',
-      stagger: 0.1,
+      stagger: 0.12,
       scrollTrigger: {
         trigger: group,
-        start: 'top 80%'
+        start: 'top 88%',
+        once: true
       }
     });
   });

@@ -28,7 +28,8 @@
     "description": "Serdar Metal, yerinde keşif ve değerinde fiyat yaklaşımıyla hurda alımından nakliyeye kadar tüm süreci tek noktadan yönetir.",
     "ctaCall": "Hemen Ara",
     "ctaWhatsapp": "WhatsApp",
-    "mediaPlaceholder": "Hero görsel alanı (yakında eklenecek)"
+    "mediaPlaceholder": "Hero görsel alanı (yakında eklenecek)",
+    "mediaAlt": "Serdar Metal geri dönüşüm operasyon sahası"
   },
   "services": {
     "eyebrow": "Hizmetler",
@@ -154,6 +155,7 @@
       "phone": "Telefon",
       "whatsapp": "WhatsApp",
       "address": "Adres",
+      "locations": "Lokasyonlar",
       "email": "E-posta",
       "hours": "Çalışma Saatleri"
     },
@@ -161,9 +163,15 @@
     "ctaFloatingCall": "Hemen Ara",
     "ctaWhatsapp": "WhatsApp ile Yaz",
     "whatsappPrefill": "Merhaba, web siteniz üzerinden size ulaşıyorum. Bilgi almak istiyorum.",
-    "mapPlaceholder": "Google Maps embed alanı (yakında eklenecek)"
+    "mapPlaceholder": "Google Maps embed alanı (yakında eklenecek)",
+    "mapCardTitle": "Konum",
+    "openMap": "Haritada Aç"
   },
   "footer": {
-    "note": "Serdar Metal Geri Dönüşüm"
+    "description": "Trakya genelinde hurda metal alım, demontaj ve geri dönüşüm hizmeti sunuyoruz.",
+    "quickLinksTitle": "Hızlı Linkler",
+    "contactTitle": "İletişim",
+    "mapTitle": "Konumlar",
+    "note": "© Serdar Metal Geri Dönüşüm. Tüm hakları saklıdır."
   }
 }

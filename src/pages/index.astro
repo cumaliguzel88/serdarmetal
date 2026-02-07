@@ -8,16 +8,16 @@ import Hero from '../components/sections/Hero.astro';
 import Process from '../components/sections/Process.astro';
 import Services from '../components/sections/Services.astro';
 import WhyUs from '../components/sections/WhyUs.astro';
-import Container from '../components/ui/Container.astro';
+import Footer from '../components/sections/Footer.astro';
 import { galleryItems } from '../content/gallery';
 import { processSteps } from '../content/process';
 import { serviceEntries } from '../content/services';
 import { siteConfig } from '../content/site.config';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { createWhatsAppHref } from '../scripts/contact-links';
-import { createTranslator, resolveLanguageFromUrl } from '../scripts/i18n/translator';
+import { createTranslator } from '../scripts/i18n/translator';
 
-const lang = resolveLanguageFromUrl(Astro.url);
+const lang = 'tr' as const;
 const t = createTranslator(lang);
 const whatsappHref = createWhatsAppHref(siteConfig.contact.whatsappPhone, t('contact.whatsappPrefill'));
 ---
@@ -43,11 +43,7 @@ const whatsappHref = createWhatsAppHref(siteConfig.contact.whatsappPhone, t('con
   </main>
   <FloatingCallButton href={siteConfig.contact.phoneHref} label={t('contact.ctaFloatingCall')} ariaLabel={t('contact.labels.phone')} />
 
-  <footer class="border-t border-slate-200 py-8">
-    <Container>
-      <p class="text-center text-sm font-medium text-slate-500">{t('footer.note')}</p>
-    </Container>
-  </footer>
+  <Footer t={t} config={siteConfig} />
 
   <script type="module">
     import '../scripts/main';

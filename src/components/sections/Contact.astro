@@ -32,8 +32,16 @@ const { t, config, whatsappHref } = Astro.props;
             <div>
               <dt class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{t('contact.labels.address')}</dt>
               <dd class="mt-1 font-medium text-slate-900">
-                {config.contact.addressLines.map((line) => (
-                  <p>{line}</p>
+                {config.contact.locations.map((location) => (
+                  <p>{location.address}</p>
+                ))}
+              </dd>
+            </div>
+            <div>
+              <dt class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{t('contact.labels.locations')}</dt>
+              <dd class="mt-1 font-medium text-slate-900">
+                {config.contact.locations.map((location) => (
+                  <p>{location.label}</p>
                 ))}
               </dd>
             </div>
@@ -56,8 +64,28 @@ const { t, config, whatsappHref } = Astro.props;
         </div>
 
         <div data-animate-item class="rounded-3xl border border-dashed border-slate-300 bg-slate-50 p-4 sm:p-5">
-          <div class="flex h-full min-h-72 items-center justify-center rounded-2xl border border-slate-200 bg-white px-4 text-center text-sm font-medium text-slate-500 sm:min-h-80">
-            {t('contact.mapPlaceholder')}
+          <div class="space-y-4">
+            {config.contact.locations.map((location) => (
+              <article class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_8px_20px_rgba(148,163,184,0.14)]">
+                <iframe
+                  title={`${t('contact.mapCardTitle')} - ${location.label}`}
+                  src={location.mapEmbedUrl}
+                  loading="lazy"
+                  class="h-52 w-full border-0"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  allowfullscreen
+                ></iframe>
+                <div class="flex items-center justify-between gap-3 px-4 py-3">
+                  <div>
+                    <p class="text-sm font-semibold text-slate-900">{location.label}</p>
+                    <p class="text-xs text-slate-500">{location.address}</p>
+                  </div>
+                  <Button href={location.mapOpenUrl} variant="secondary" class="text-xs" ariaLabel={t('contact.openMap')}>
+                    {t('contact.openMap')}
+                  </Button>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </div>

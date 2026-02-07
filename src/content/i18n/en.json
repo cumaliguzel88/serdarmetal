@@ -28,7 +28,8 @@
     "description": "Serdar Metal handles the full flow from on-site inspection to transport with a fair-pricing approach and one-point coordination.",
     "ctaCall": "Call Now",
     "ctaWhatsapp": "WhatsApp",
-    "mediaPlaceholder": "Hero media area (coming soon)"
+    "mediaPlaceholder": "Hero media area (coming soon)",
+    "mediaAlt": "Serdar Metal recycling operation area"
   },
   "services": {
     "eyebrow": "Services",
@@ -154,6 +155,7 @@
       "phone": "Phone",
       "whatsapp": "WhatsApp",
       "address": "Address",
+      "locations": "Locations",
       "email": "Email",
       "hours": "Working Hours"
     },
@@ -161,9 +163,15 @@
     "ctaFloatingCall": "Call Now",
     "ctaWhatsapp": "Message on WhatsApp",
     "whatsappPrefill": "Hello, I am reaching out via your website. I would like to get more information.",
-    "mapPlaceholder": "Google Maps embed area (coming soon)"
+    "mapPlaceholder": "Google Maps embed area (coming soon)",
+    "mapCardTitle": "Location",
+    "openMap": "Open in Maps"
   },
   "footer": {
-    "note": "Serdar Metal Recycling"
+    "description": "We provide scrap metal purchasing, dismantling, and recycling services across Thrace.",
+    "quickLinksTitle": "Quick Links",
+    "contactTitle": "Contact",
+    "mapTitle": "Locations",
+    "note": "© Serdar Metal Recycling. All rights reserved."
   }
 }

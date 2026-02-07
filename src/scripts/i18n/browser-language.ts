@@ -5,19 +5,17 @@ function isLang(value: string | null): value is 'tr' | 'en' {
 }
 
 export function initBrowserLanguageSync() {
-  const url = new URL(window.location.href);
-  const queryLang = url.searchParams.get('lang');
   const storedLang = window.localStorage.getItem(STORAGE_KEY);
+  const path = window.location.pathname;
+  const normalizedPath = path.endsWith('/') ? path : `${path}/`;
+  const isEnPath = normalizedPath.includes('/en/');
 
-  if (!isLang(queryLang) && storedLang === 'en') {
-    url.searchParams.set('lang', 'en');
-    window.location.replace(url.toString());
+  if (!isEnPath && storedLang === 'en') {
+    window.location.replace(new URL('en/', window.location.href).toString());
     return;
   }
 
-  if (isLang(queryLang)) {
-    window.localStorage.setItem(STORAGE_KEY, queryLang);
-  }
+  window.localStorage.setItem(STORAGE_KEY, isEnPath ? 'en' : 'tr');
 
   const switches = document.querySelectorAll<HTMLAnchorElement>('[data-lang-switch]');
   switches.forEach((switchLink) => {
