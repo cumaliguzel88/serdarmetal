@@ -50,9 +50,7 @@ export function initServiceAnimations() {
   const setActiveCard = (activeCard: HTMLButtonElement) => {
     cards.forEach((card) => {
       const isActive = card === activeCard;
-      card.classList.toggle('ring-2', isActive);
-      card.classList.toggle('ring-[var(--color-accent)]', isActive);
-      card.classList.toggle('border-[var(--color-accent)]', isActive);
+      card.classList.toggle('is-active', isActive);
       card.setAttribute('aria-pressed', String(isActive));
     });
   };

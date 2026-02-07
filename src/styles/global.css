@@ -25,6 +25,32 @@ body {
   background: rgba(194, 0, 47, 0.16);
 }
 
+.service-card {
+  position: relative;
+}
+
+.service-card.is-active {
+  border-color: var(--color-accent);
+  box-shadow:
+    0 0 0 2px rgba(194, 0, 47, 0.2),
+    0 14px 30px rgba(194, 0, 47, 0.18);
+  animation: service-card-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes service-card-pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 2px rgba(194, 0, 47, 0.2),
+      0 14px 30px rgba(194, 0, 47, 0.18);
+  }
+  50% {
+    box-shadow:
+      0 0 0 4px rgba(194, 0, 47, 0.34),
+      0 18px 36px rgba(194, 0, 47, 0.28);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -36,5 +62,9 @@ body {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .service-card.is-active {
+    animation: none;
   }
 }
