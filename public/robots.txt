@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cumaliguzel88.github.io/serdarmetal/sitemap-index.xml

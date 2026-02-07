@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { siteConfig } from '../content/site.config';
 
 interface Props {
   lang: 'tr' | 'en';
@@ -12,7 +13,62 @@ interface Props {
 }
 
 const { lang, title, description, ogTitle, ogDescription, ogImage, canonicalBase } = Astro.props;
-const canonicalUrl = new URL(Astro.url.pathname, canonicalBase).toString();
+const baseUrl = import.meta.env.BASE_URL;
+const normalizedBaseUrl = baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`;
+const canonicalUrl = new URL(lang === 'en' ? 'en/' : '', canonicalBase).toString();
+const trUrl = new URL('', canonicalBase).toString();
+const enUrl = new URL('en/', canonicalBase).toString();
+const ogImagePath = ogImage.startsWith('/') ? ogImage.slice(1) : ogImage;
+const ogImageUrl = new URL(ogImagePath, canonicalBase).toString();
+const ogLocale = lang === 'tr' ? 'tr_TR' : 'en_US';
+const ogLocaleAlternate = lang === 'tr' ? 'en_US' : 'tr_TR';
+const schemaName = lang === 'tr' ? 'Serdar Metal Geri Dönüşüm' : 'Serdar Metal Recycling';
+const firstLocation = siteConfig.contact.locations[0];
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      name: schemaName,
+      url: new URL('', canonicalBase).toString(),
+      inLanguage: ['tr', 'en']
+    },
+    {
+      '@type': 'LocalBusiness',
+      name: schemaName,
+      image: ogImageUrl,
+      url: canonicalUrl,
+      description,
+      telephone: siteConfig.contact.phone,
+      email: siteConfig.contact.email,
+      areaServed: 'Trakya',
+      availableLanguage: ['tr', 'en'],
+      hasMap: firstLocation?.mapOpenUrl,
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: firstLocation?.address ?? '',
+        addressCountry: 'TR'
+      },
+      openingHoursSpecification: [
+        {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+          opens: '08:30',
+          closes: '18:00'
+        }
+      ],
+      contactPoint: [
+        {
+          '@type': 'ContactPoint',
+          telephone: siteConfig.contact.phone,
+          contactType: 'customer service',
+          availableLanguage: ['tr', 'en']
+        }
+      ]
+    }
+  ]
+};
 ---
 
 <!doctype html>
@@ -21,18 +77,33 @@ const canonicalUrl = new URL(Astro.url.pathname, canonicalBase).toString();
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+    <meta name="theme-color" content="#c2002f" />
+    <meta name="author" content="Serdar Metal Geri Dönüşüm" />
+    <meta name="format-detection" content="telephone=yes" />
+    <link rel="icon" type="image/svg+xml" href={`${normalizedBaseUrl}favicon.svg`} />
+    <link rel="icon" href={`${normalizedBaseUrl}favicon.ico`} />
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="robots" content="index,follow" />
     <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hrefLang="tr" href={trUrl} />
+    <link rel="alternate" hrefLang="en" href={enUrl} />
+    <link rel="alternate" hrefLang="x-default" href={trUrl} />
 
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Serdar Metal" />
+    <meta property="og:locale" content={ogLocale} />
+    <meta property="og:locale:alternate" content={ogLocaleAlternate} />
     <meta property="og:title" content={ogTitle} />
     <meta property="og:description" content={ogDescription} />
-    <meta property="og:image" content={ogImage} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:alt" content={ogTitle} />
     <meta property="og:url" content={canonicalUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={ogTitle} />
+    <meta name="twitter:description" content={ogDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>
   </head>
   <body class="bg-white text-slate-900 antialiased">
     <slot />
