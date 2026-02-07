@@ -14,6 +14,7 @@ interface Props {
 
 const { t } = Astro.props;
 const items = t<WhyUsItem[]>('whyUs.items');
+const iconOrder = ['pickup', 'pricing', 'coverage', 'compliance'] as const;
 ---
 
 <section id="neden-biz" class="scroll-mt-28 py-16 sm:py-20" data-animate-group>
@@ -22,14 +23,50 @@ const items = t<WhyUsItem[]>('whyUs.items');
       <SectionTitle eyebrow={t('whyUs.eyebrow')} title={t('whyUs.title')} />
 
       <div class="grid gap-4 md:grid-cols-2">
-        {items.map((item) => (
-          <Card>
-            <div data-animate-item>
-              <h3 class="font-display text-xl font-semibold text-slate-900">{item.title}</h3>
-              <p class="mt-2 text-sm leading-7 text-slate-600 sm:text-base">{item.description}</p>
-            </div>
-          </Card>
-        ))}
+        {items.map((item, index) => {
+          const icon = iconOrder[index] ?? 'compliance';
+
+          return (
+            <Card>
+              <div data-animate-item class="flex items-start gap-4 sm:gap-5">
+                <span
+                  class="mt-0.5 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-[var(--color-accent)]/25 bg-[var(--color-accent)]/5 text-[var(--color-accent)] sm:h-12 sm:w-12"
+                  aria-hidden="true"
+                >
+                  {icon === 'pickup' && (
+                    <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.9">
+                      <path d="M12 21s6-5.8 6-10a6 6 0 1 0-12 0c0 4.2 6 10 6 10Z" />
+                      <circle cx="12" cy="11" r="2.2" />
+                    </svg>
+                  )}
+                  {icon === 'pricing' && (
+                    <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.9">
+                      <path d="M4 7h16M4 12h10M4 17h16" />
+                      <circle cx="18" cy="12" r="2.2" />
+                    </svg>
+                  )}
+                  {icon === 'coverage' && (
+                    <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.9">
+                      <path d="M3 6.5 9 4l6 2.5L21 4v13.5L15 20l-6-2.5L3 20V6.5Z" />
+                      <path d="m9 4 .1 13.5M15 6.5V20" />
+                    </svg>
+                  )}
+                  {icon === 'compliance' && (
+                    <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.9">
+                      <circle cx="12" cy="12" r="8" />
+                      <path d="m8.6 12.3 2.3 2.3 4.5-4.5" />
+                    </svg>
+                  )}
+                </span>
+
+                <div>
+                  <h3 class="font-display text-xl font-semibold text-slate-900">{item.title}</h3>
+                  <p class="mt-2 text-sm leading-7 text-slate-600 sm:text-base">{item.description}</p>
+                </div>
+              </div>
+            </Card>
+          );
+        })}
       </div>
     </div>
   </Container>

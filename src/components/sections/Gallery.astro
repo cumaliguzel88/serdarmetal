@@ -11,9 +11,9 @@ interface Props {
 const { t, items } = Astro.props;
 
 const ratioClasses: Record<GalleryItem['ratio'], string> = {
-  wide: 'aspect-[16/9]',
+  wide: 'aspect-[16/10]',
   square: 'aspect-square',
-  tall: 'aspect-[3/4]'
+  tall: 'aspect-[4/5]'
 };
 ---
 
@@ -31,12 +31,21 @@ const ratioClasses: Record<GalleryItem['ratio'], string> = {
           <div
             data-animate-item
             class:list={[
-              'rounded-2xl border border-dashed border-slate-300 bg-[linear-gradient(145deg,rgba(248,250,252,0.85)_0%,rgba(255,255,255,1)_50%,rgba(255,237,242,0.55)_100%)] p-4 shadow-[0_8px_20px_rgba(148,163,184,0.12)]',
+              'group overflow-hidden rounded-2xl border border-slate-200 bg-white p-2 shadow-[0_10px_22px_rgba(148,163,184,0.14)]',
               ratioClasses[item.ratio]
             ]}
           >
-            <div class="flex h-full items-center justify-center rounded-xl border border-slate-200 bg-white/85 px-4 text-center text-sm font-medium text-slate-500">
-              {t('gallery.placeholder')}
+            <div class="relative h-full overflow-hidden rounded-xl border border-slate-200">
+              <img
+                src={item.image.src}
+                alt={t(`gallery.items.${item.id}.alt`)}
+                loading="lazy"
+                class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]"
+              />
+              <div class="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,0)_35%,rgba(2,6,23,0.56)_100%)]"></div>
+              <p class="absolute inset-x-3 bottom-3 text-sm font-semibold text-white sm:inset-x-4 sm:bottom-4">
+                {t(`gallery.items.${item.id}.title`)}
+              </p>
             </div>
           </div>
         ))}

@@ -33,9 +33,9 @@ const whatsappHref = createWhatsAppHref(siteConfig.contact.whatsappPhone, t('con
   <main>
     <Hero t={t} config={siteConfig} whatsappHref={whatsappHref} />
     <Services t={t} services={serviceEntries} />
+    <About t={t} />
     <WhyUs t={t} />
     <Gallery t={t} items={galleryItems} />
-    <About t={t} />
     <Contact t={t} config={siteConfig} whatsappHref={whatsappHref} />
   </main>
   <FloatingCallButton href={siteConfig.contact.phoneHref} label={t('contact.ctaFloatingCall')} ariaLabel={t('contact.labels.phone')} />

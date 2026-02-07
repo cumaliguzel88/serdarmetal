@@ -30,7 +30,9 @@
     "ctaCall": "Call Now",
     "ctaWhatsapp": "WhatsApp",
     "mediaPlaceholder": "Hero media area (coming soon)",
-    "mediaAlt": "Serdar Metal recycling operation area"
+    "mediaAlt": "Serdar Metal recycling operation area",
+    "miniVisual1Alt": "Field background visual 1",
+    "miniVisual2Alt": "Field background visual 2"
   },
   "services": {
     "eyebrow": "Services",
@@ -134,10 +136,35 @@
     }
   },
   "gallery": {
-    "eyebrow": "References / Gallery",
-    "title": "Operational snapshots from the field",
-    "description": "This area will soon include visuals from facility dismantling and scrap pickup operations.",
-    "placeholder": "Gallery area (visuals coming soon)"
+    "eyebrow": "Field Operations",
+    "title": "Real visuals from active operations",
+    "description": "Current visual content from scrap purchasing, separation, and facility operations.",
+    "items": {
+      "operation": {
+        "title": "Metal recycling yard",
+        "alt": "View from a metal recycling operation yard"
+      },
+      "copper": {
+        "title": "Copper separation",
+        "alt": "Copper scrap separation and processing visual"
+      },
+      "brass": {
+        "title": "Yellow brass scrap",
+        "alt": "Yellow brass scrap material visual"
+      },
+      "chrome": {
+        "title": "Stainless / chrome",
+        "alt": "Stainless chrome scrap processing visual"
+      },
+      "machine": {
+        "title": "Heavy machinery operation",
+        "alt": "Heavy machinery working in a scrap yard"
+      },
+      "yard": {
+        "title": "Recycling loading zone",
+        "alt": "Loading zone inside the recycling facility"
+      }
+    }
   },
   "about": {
     "eyebrow": "About",
@@ -146,7 +173,9 @@
       "Serdar Metal Recycling started operations in Istanbul in 1990 and has continued to serve with environmental awareness and an innovative perspective ever since. In 2010, with the branch we opened in Tekirdag, we started to grow and expand our impact across a wider geography. Today, with our advanced equipment and expert team, we hold a leading position in the recycling sector.",
       "We collect metal waste such as iron, steel, copper, lead, yellow scrap, chrome, nickel, and aluminum from every part of Thrace. We contribute not only to the economy but also to the protection of natural resources. In addition to scrap metal sorting services, our company also performs dismantling works and brings scrap metals back into the economy.",
       "As Serdar Metal Recycling, we carry out all our activities in compliance with legal regulations and align with all sector requirements. To provide the best service to our customers, we continuously renew and improve ourselves. If you are looking for environmentally friendly and economical solutions, feel free to contact us."
-    ]
+    ],
+    "visual1Alt": "Serdar Metal heavy machinery operation",
+    "visual2Alt": "Serdar Metal recycling yard"
   },
   "contact": {
     "eyebrow": "Contact",

@@ -30,7 +30,9 @@
     "ctaCall": "Hemen Ara",
     "ctaWhatsapp": "WhatsApp",
     "mediaPlaceholder": "Hero görsel alanı (yakında eklenecek)",
-    "mediaAlt": "Serdar Metal geri dönüşüm operasyon sahası"
+    "mediaAlt": "Serdar Metal geri dönüşüm operasyon sahası",
+    "miniVisual1Alt": "Saha arka plan görseli 1",
+    "miniVisual2Alt": "Saha arka plan görseli 2"
   },
   "services": {
     "eyebrow": "Hizmetler",
@@ -134,10 +136,35 @@
     }
   },
   "gallery": {
-    "eyebrow": "Referans / Galeri",
-    "title": "Saha çalışmalarından kesitler",
-    "description": "Bu alana yakında tesis sökümü ve hurda alım operasyonlarından görseller eklenecek.",
-    "placeholder": "Galeri alanı (görseller yakında eklenecek)"
+    "eyebrow": "Saha Çalışmaları",
+    "title": "Operasyonlardan gerçek görüntüler",
+    "description": "Hurda alım, ayrıştırma ve tesis operasyonlarımızdan güncel görsel içerikler.",
+    "items": {
+      "operation": {
+        "title": "Metal geri dönüşüm sahası",
+        "alt": "Metal geri dönüşüm operasyon sahasından görüntü"
+      },
+      "copper": {
+        "title": "Bakır ayrıştırma",
+        "alt": "Bakır hurda ayrıştırma ve işleme görüntüsü"
+      },
+      "brass": {
+        "title": "Sarı pirinç hurda",
+        "alt": "Sarı pirinç hurda malzeme görseli"
+      },
+      "chrome": {
+        "title": "Paslanmaz / krom",
+        "alt": "Paslanmaz krom hurda işleme görseli"
+      },
+      "machine": {
+        "title": "İş makinası operasyonu",
+        "alt": "Hurda sahasında çalışan iş makinası"
+      },
+      "yard": {
+        "title": "Geri dönüşüm yükleme alanı",
+        "alt": "Geri dönüşüm tesisinde yükleme alanı"
+      }
+    }
   },
   "about": {
     "eyebrow": "Hakkımızda",
@@ -146,7 +173,9 @@
       "Serdar Metal Geri Dönüşüm, 1990 yılında İstanbul'da faaliyete başladı ve o günden bu yana çevreye duyarlılıkla, yenilikçi bir bakış açısıyla hizmet vermeye devam ediyor. 2010 yılında Tekirdağ'da açtığımız şube ile büyümeye ve daha geniş bir coğrafyada etki alanımızı genişletmeye başladık. Bugün, gelişmiş ekipmanlarımız ve uzman kadromuzla, geri dönüşüm alanında lider bir konumdayız.",
       "Trakya'nın her köşesinden demir, çelik, bakır, kurşun, sarı hurda, krom, nikel ve alüminyum gibi metal atıkları topluyoruz. Sadece ekonomiye değil, aynı zamanda doğal kaynakların korunmasına da katkıda bulunuyoruz. Firmamız, hurda metal ayıklama hizmetlerinin yanı sıra, demontaj çalışmaları da gerçekleştirmekte ve hurda metalleri yeniden ekonomiye kazandırmaktadır.",
       "Serdar Metal Geri Dönüşüm olarak, tüm faaliyetlerimizi yasal düzenlemelere uygun olarak sürdürmekte ve sektördeki tüm gerekliliklere uyum sağlamaktayız. Müşterilerimize en iyi hizmeti sunabilmek için sürekli olarak kendimizi yeniliyor ve geliştiriyoruz. Siz de çevre dostu ve ekonomik çözümler arıyorsanız, bizimle iletişime geçmekten çekinmeyin."
-    ]
+    ],
+    "visual1Alt": "Serdar Metal iş makinası operasyonu",
+    "visual2Alt": "Serdar Metal metal geri dönüşüm sahası"
   },
   "contact": {
     "eyebrow": "İletişim",
