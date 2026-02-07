@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import Button from '../ui/Button.astro';
 import Container from '../ui/Container.astro';
 import type { SiteConfig } from '../../content/site.config';
@@ -41,10 +42,14 @@ const { t, config, whatsappHref } = Astro.props;
 
       <div class="space-y-4" data-animate-item>
         <div class="rounded-3xl border border-dashed border-slate-300 bg-[linear-gradient(150deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_55%,rgba(255,237,242,0.65)_100%)] p-3 shadow-[0_20px_40px_rgba(148,163,184,0.2)] sm:p-4 lg:p-5">
-          <img
-            src={heroImage.src}
+          <Image
+            src={heroImage}
             alt={t('hero.mediaAlt')}
             class="aspect-[4/3] w-full rounded-2xl border border-slate-200/80 object-cover lg:aspect-[4/3]"
+            format="webp"
+            quality={74}
+            widths={[560, 760, 960, 1280]}
+            sizes="(max-width: 1023px) 100vw, 56vw"
             loading="eager"
             fetchpriority="high"
           />
@@ -52,10 +57,28 @@ const { t, config, whatsappHref } = Astro.props;
 
         <div class="grid grid-cols-2 gap-3 sm:gap-4">
           <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white p-2 shadow-[0_8px_18px_rgba(148,163,184,0.16)]">
-            <img src={background1Image.src} alt={t('hero.miniVisual1Alt')} loading="lazy" class="aspect-[16/10] w-full rounded-xl object-cover" />
+            <Image
+              src={background1Image}
+              alt={t('hero.miniVisual1Alt')}
+              class="aspect-[16/10] w-full rounded-xl object-cover"
+              format="webp"
+              quality={72}
+              widths={[280, 420, 560]}
+              sizes="(max-width: 639px) 48vw, (max-width: 1023px) 36vw, 18vw"
+              loading="lazy"
+            />
           </div>
           <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white p-2 shadow-[0_8px_18px_rgba(148,163,184,0.16)]">
-            <img src={background2Image.src} alt={t('hero.miniVisual2Alt')} loading="lazy" class="aspect-[16/10] w-full rounded-xl object-cover" />
+            <Image
+              src={background2Image}
+              alt={t('hero.miniVisual2Alt')}
+              class="aspect-[16/10] w-full rounded-xl object-cover"
+              format="webp"
+              quality={72}
+              widths={[280, 420, 560]}
+              sizes="(max-width: 639px) 48vw, (max-width: 1023px) 36vw, 18vw"
+              loading="lazy"
+            />
           </div>
         </div>
       </div>

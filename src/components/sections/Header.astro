@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import Button from '../ui/Button.astro';
 import Container from '../ui/Container.astro';
 import logoImage from '../../../assets/serdarmetallogo.png';
@@ -18,11 +19,16 @@ const enHref = lang === 'en' ? './' : 'en/';
   <Container>
     <div class="flex min-h-[5.25rem] items-center justify-between gap-2 sm:min-h-[6.25rem] sm:gap-3 lg:min-h-[7rem] lg:gap-4">
       <a href="#hero" class="inline-flex items-center gap-2 sm:gap-3" aria-label={t('site.name')}>
-        <img
-          src={logoImage.src}
+        <Image
+          src={logoImage}
           alt={t('site.name')}
           class="h-12 w-auto max-w-[140px] object-contain sm:h-14 sm:max-w-[180px] lg:h-[4.25rem] lg:max-w-[220px]"
+          format="webp"
+          quality={82}
+          widths={[140, 180, 220, 320]}
+          sizes="(max-width: 639px) 140px, (max-width: 1023px) 180px, 220px"
           loading="eager"
+          fetchpriority="high"
         />
         <span class="hidden font-display text-sm font-bold uppercase tracking-[0.2em] text-slate-900 lg:inline">{t('header.logo')}</span>
       </a>

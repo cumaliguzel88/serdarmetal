@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import Container from '../ui/Container.astro';
 import SectionTitle from '../ui/SectionTitle.astro';
 import ismakinasiImage from '../../../assets/ismakinası.png';
@@ -27,10 +28,28 @@ const paragraphs = t<string[]>('about.content');
 
           <div class="grid gap-4" data-animate-item>
             <div class="overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 p-2 shadow-[0_10px_20px_rgba(148,163,184,0.16)]">
-              <img src={ismakinasiImage.src} alt={t('about.visual1Alt')} class="aspect-[4/3] w-full rounded-xl object-cover" loading="lazy" />
+              <Image
+                src={ismakinasiImage}
+                alt={t('about.visual1Alt')}
+                class="aspect-[4/3] w-full rounded-xl object-cover"
+                format="webp"
+                quality={72}
+                widths={[420, 640, 880]}
+                sizes="(max-width: 1023px) 100vw, 34vw"
+                loading="lazy"
+              />
             </div>
             <div class="overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 p-2 shadow-[0_10px_20px_rgba(148,163,184,0.16)]">
-              <img src={metalGeriDonusumImage.src} alt={t('about.visual2Alt')} class="aspect-[4/3] w-full rounded-xl object-cover" loading="lazy" />
+              <Image
+                src={metalGeriDonusumImage}
+                alt={t('about.visual2Alt')}
+                class="aspect-[4/3] w-full rounded-xl object-cover"
+                format="webp"
+                quality={72}
+                widths={[420, 640, 880]}
+                sizes="(max-width: 1023px) 100vw, 34vw"
+                loading="lazy"
+              />
             </div>
           </div>
         </div>
