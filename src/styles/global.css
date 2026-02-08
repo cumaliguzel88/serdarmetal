@@ -15,6 +15,7 @@ body {
   background-color: #ffffff;
   color: #0f172a;
   font-family: 'Manrope', 'Segoe UI', sans-serif;
+  overflow-x: hidden;
 }
 
 .font-display {
@@ -27,6 +28,59 @@ body {
 
 .service-card {
   position: relative;
+}
+
+.floating-call-button {
+  isolation: isolate;
+  overflow: visible;
+  left: auto;
+  right: max(0.75rem, env(safe-area-inset-right));
+  bottom: max(1rem, env(safe-area-inset-bottom));
+}
+
+@media (min-width: 640px) {
+  .floating-call-button {
+    right: max(1.5rem, env(safe-area-inset-right));
+    bottom: max(1.5rem, env(safe-area-inset-bottom));
+  }
+}
+
+.floating-call-ring {
+  position: absolute;
+  inset: -4px;
+  pointer-events: none;
+}
+
+.floating-call-ring-track {
+  fill: none;
+  stroke: rgba(255, 196, 209, 0.45);
+  stroke-width: 1.2;
+}
+
+.floating-call-ring-spark {
+  fill: none;
+  stroke: rgba(255, 225, 235, 0.98);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-dasharray: 6 94;
+  animation: floating-call-orbit 2.1s linear infinite;
+  filter:
+    drop-shadow(0 0 2px rgba(255, 209, 222, 0.95))
+    drop-shadow(0 0 6px rgba(255, 97, 141, 0.55));
+}
+
+@keyframes floating-call-orbit {
+  to {
+    stroke-dashoffset: -100;
+  }
+}
+
+details > summary {
+  list-style: none;
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
 }
 
 .service-card.is-active {
@@ -65,6 +119,10 @@ body {
   }
 
   .service-card.is-active {
+    animation: none;
+  }
+
+  .floating-call-ring-spark {
     animation: none;
   }
 }

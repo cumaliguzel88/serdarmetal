@@ -1,6 +1,6 @@
 export const siteConfig = {
   defaultLang: 'tr',
-  languages: ['tr', 'en'] as const,
+  languages: ['tr'] as const,
   contact: {
     phone: '+90 (539) 811 89 10',
     phoneHref: 'tel:+905398118910',

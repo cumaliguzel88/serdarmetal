@@ -12,7 +12,7 @@ interface Props {
 const { t, config } = Astro.props;
 ---
 
-<footer class="border-t border-slate-200 bg-slate-50 py-12 sm:py-14">
+<footer class="border-t border-[#8d001f] bg-[linear-gradient(100deg,#8f001f_0%,#b3002d_60%,#8f001f_100%)] py-12 sm:py-14">
   <Container>
     <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
       <div class="space-y-3">
@@ -20,51 +20,51 @@ const { t, config } = Astro.props;
           <Image
             src={logoImage}
             alt={t('site.name')}
-            class="h-12 w-auto object-contain"
+            class="h-12 w-auto rounded-lg bg-white/95 p-1.5 object-contain"
             format="webp"
             quality={80}
             widths={[96, 128, 176]}
             sizes="96px"
             loading="lazy"
           />
-          <p class="font-display text-xl font-bold tracking-[0.18em] text-slate-900">{t('site.name')}</p>
+          <p class="font-display text-xl font-bold tracking-[0.18em] text-white">{t('site.name')}</p>
         </div>
-        <p class="text-sm leading-7 text-slate-600">{t('footer.description')}</p>
+        <p class="text-sm leading-7 text-white/85">{t('footer.description')}</p>
       </div>
 
       <div class="space-y-3">
-        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">{t('footer.quickLinksTitle')}</p>
-        <ul class="space-y-2 text-sm text-slate-700">
-          <li><a class="transition hover:text-[var(--color-accent)]" href="#hizmetler">{t('header.nav.services')}</a></li>
-          <li><a class="transition hover:text-[var(--color-accent)]" href="#hakkimizda">{t('header.nav.about')}</a></li>
-          <li><a class="transition hover:text-[var(--color-accent)]" href="#iletisim">{t('header.nav.contact')}</a></li>
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-white/70">{t('footer.quickLinksTitle')}</p>
+        <ul class="space-y-2 text-sm text-white/85">
+          <li><a class="transition hover:text-white" href="#hizmetler">{t('header.nav.services')}</a></li>
+          <li><a class="transition hover:text-white" href="#hakkimizda">{t('header.nav.about')}</a></li>
+          <li><a class="transition hover:text-white" href="#iletisim">{t('header.nav.contact')}</a></li>
         </ul>
       </div>
 
       <div class="space-y-3">
-        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">{t('footer.contactTitle')}</p>
-        <ul class="space-y-2 text-sm text-slate-700">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-white/70">{t('footer.contactTitle')}</p>
+        <ul class="space-y-2 text-sm text-white/85">
           <li>
-            <a href={config.contact.phoneHref} class="transition hover:text-[var(--color-accent)]">{config.contact.phone}</a>
+            <a href={config.contact.phoneHref} class="transition hover:text-white">{config.contact.phone}</a>
           </li>
           <li>
-            <a href={`mailto:${config.contact.email}`} class="transition hover:text-[var(--color-accent)]">{config.contact.email}</a>
+            <a href={`mailto:${config.contact.email}`} class="transition hover:text-white">{config.contact.email}</a>
           </li>
           <li>{config.contact.hours}</li>
         </ul>
       </div>
 
       <div class="space-y-3">
-        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">{t('footer.mapTitle')}</p>
-        <ul class="space-y-2 text-sm text-slate-700">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-white/70">{t('footer.mapTitle')}</p>
+        <ul class="space-y-2 text-sm text-white/85">
           {config.contact.locations.map((location) => (
-            <li class="rounded-xl border border-slate-200 bg-white px-3 py-2">
-              <p class="font-medium text-slate-900">{location.label}</p>
+            <li class="rounded-xl border border-white/25 bg-white/10 px-3 py-2 backdrop-blur-sm">
+              <p class="font-medium text-white">{location.label}</p>
               <a
                 href={location.mapOpenUrl}
                 target="_blank"
                 rel="noreferrer"
-                class="mt-1 inline-block text-[var(--color-accent)] transition hover:text-[var(--color-accent-strong)]"
+                class="mt-1 inline-block text-white/90 transition hover:text-white"
               >
                 {t('contact.openMap')}
               </a>
@@ -74,6 +74,6 @@ const { t, config } = Astro.props;
       </div>
     </div>
 
-    <p class="mt-8 border-t border-slate-200 pt-6 text-center text-xs font-medium text-slate-500">{t('footer.note')}</p>
+    <p class="mt-8 border-t border-white/25 pt-6 text-center text-xs font-medium text-white/75">{t('footer.note')}</p>
   </Container>
 </footer>

@@ -16,10 +16,11 @@
       "about": "About",
       "contact": "Contact"
     },
-    "cta": "WhatsApp",
-    "ctaShort": "WA",
+    "cta": "Call Now",
+    "ctaShort": "Call",
     "langLabel": "Language",
     "navAria": "Main navigation",
+    "menuToggle": "Menu",
     "langTr": "TR",
     "langEn": "EN"
   },

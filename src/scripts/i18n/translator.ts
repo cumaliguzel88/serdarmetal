@@ -11,7 +11,7 @@ function getByPath(source: unknown, path: string): unknown {
 }
 
 export function isLanguage(value: string | null): value is Language {
-  return value === 'tr' || value === 'en';
+  return value === 'tr';
 }
 
 export function resolveLanguageFromUrl(url: URL): Language {

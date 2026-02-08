@@ -3,7 +3,7 @@ import '../styles/global.css';
 import { siteConfig } from '../content/site.config';
 
 interface Props {
-  lang: 'tr' | 'en';
+  lang: 'tr';
   title: string;
   description: string;
   ogTitle: string;
@@ -15,14 +15,12 @@ interface Props {
 const { lang, title, description, ogTitle, ogDescription, ogImage, canonicalBase } = Astro.props;
 const baseUrl = import.meta.env.BASE_URL;
 const normalizedBaseUrl = baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`;
-const canonicalUrl = new URL(lang === 'en' ? 'en/' : '', canonicalBase).toString();
+const canonicalUrl = new URL('', canonicalBase).toString();
 const trUrl = new URL('', canonicalBase).toString();
-const enUrl = new URL('en/', canonicalBase).toString();
 const ogImagePath = ogImage.startsWith('/') ? ogImage.slice(1) : ogImage;
 const ogImageUrl = new URL(ogImagePath, canonicalBase).toString();
-const ogLocale = lang === 'tr' ? 'tr_TR' : 'en_US';
-const ogLocaleAlternate = lang === 'tr' ? 'en_US' : 'tr_TR';
-const schemaName = lang === 'tr' ? 'Serdar Metal Geri Dönüşüm' : 'Serdar Metal Recycling';
+const ogLocale = 'tr_TR';
+const schemaName = 'Serdar Metal Geri Dönüşüm';
 const firstLocation = siteConfig.contact.locations[0];
 
 const structuredData = {
@@ -32,7 +30,7 @@ const structuredData = {
       '@type': 'WebSite',
       name: schemaName,
       url: new URL('', canonicalBase).toString(),
-      inLanguage: ['tr', 'en']
+      inLanguage: ['tr']
     },
     {
       '@type': 'LocalBusiness',
@@ -43,7 +41,7 @@ const structuredData = {
       telephone: siteConfig.contact.phone,
       email: siteConfig.contact.email,
       areaServed: 'Trakya',
-      availableLanguage: ['tr', 'en'],
+      availableLanguage: ['tr'],
       hasMap: firstLocation?.mapOpenUrl,
       address: {
         '@type': 'PostalAddress',
@@ -63,7 +61,7 @@ const structuredData = {
           '@type': 'ContactPoint',
           telephone: siteConfig.contact.phone,
           contactType: 'customer service',
-          availableLanguage: ['tr', 'en']
+          availableLanguage: ['tr']
         }
       ]
     }
@@ -87,13 +85,11 @@ const structuredData = {
     <meta name="robots" content="index,follow" />
     <link rel="canonical" href={canonicalUrl} />
     <link rel="alternate" hrefLang="tr" href={trUrl} />
-    <link rel="alternate" hrefLang="en" href={enUrl} />
     <link rel="alternate" hrefLang="x-default" href={trUrl} />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Serdar Metal" />
     <meta property="og:locale" content={ogLocale} />
-    <meta property="og:locale:alternate" content={ogLocaleAlternate} />
     <meta property="og:title" content={ogTitle} />
     <meta property="og:description" content={ogDescription} />
     <meta property="og:image" content={ogImageUrl} />

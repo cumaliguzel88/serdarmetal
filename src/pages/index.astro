@@ -29,7 +29,7 @@ const whatsappHref = createWhatsAppHref(siteConfig.contact.whatsappPhone, t('con
   ogImage={t('meta.ogImage')}
   canonicalBase={siteConfig.canonicalBase}
 >
-  <Header t={t} lang={lang} whatsappHref={whatsappHref} />
+  <Header t={t} phoneHref={siteConfig.contact.phoneHref} />
   <main>
     <Hero t={t} config={siteConfig} whatsappHref={whatsappHref} />
     <Services t={t} services={serviceEntries} />

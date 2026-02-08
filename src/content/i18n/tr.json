@@ -16,10 +16,11 @@
       "about": "Hakkımızda",
       "contact": "İletişim"
     },
-    "cta": "WhatsApp",
-    "ctaShort": "WA",
+    "cta": "Hemen Ara",
+    "ctaShort": "Ara",
     "langLabel": "Dil",
     "navAria": "Ana gezinme",
+    "menuToggle": "Menü",
     "langTr": "TR",
     "langEn": "EN"
   },
