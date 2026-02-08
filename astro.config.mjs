@@ -8,7 +8,11 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://cumaliguzel88.github.io/serdarmetal',
   base: '/serdarmetal',
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      filter: (page) => !page.endsWith('/en/')
+    })
+  ],
   vite: {
     plugins: [tailwindcss()]
   }

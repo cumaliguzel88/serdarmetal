@@ -6,13 +6,14 @@ interface Props {
   lang: 'tr';
   title: string;
   description: string;
+  keywords: string;
   ogTitle: string;
   ogDescription: string;
   ogImage: string;
   canonicalBase: string;
 }
 
-const { lang, title, description, ogTitle, ogDescription, ogImage, canonicalBase } = Astro.props;
+const { lang, title, description, keywords, ogTitle, ogDescription, ogImage, canonicalBase } = Astro.props;
 const baseUrl = import.meta.env.BASE_URL;
 const normalizedBaseUrl = baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`;
 const canonicalUrl = new URL('', canonicalBase).toString();
@@ -22,6 +23,20 @@ const ogImageUrl = new URL(ogImagePath, canonicalBase).toString();
 const ogLocale = 'tr_TR';
 const schemaName = 'Serdar Metal Geri Dönüşüm';
 const firstLocation = siteConfig.contact.locations[0];
+const keywordsList = keywords
+  .split(',')
+  .map((term) => term.trim())
+  .filter((term) => term.length > 0);
+const serviceCatalogNames = [
+  'Hurda alımı',
+  'Hurda satımı',
+  'Trakya hurda alımı',
+  'Demir hurda alımı',
+  'Bakır hurda alımı',
+  'Alüminyum hurda alımı',
+  'Krom hurda alımı',
+  'Tesis sökümü'
+];
 
 const structuredData = {
   '@context': 'https://schema.org',
@@ -29,20 +44,36 @@ const structuredData = {
     {
       '@type': 'WebSite',
       name: schemaName,
+      alternateName: ['Serdar Metal', 'Serdar Metal Çelik'],
       url: new URL('', canonicalBase).toString(),
-      inLanguage: ['tr']
+      inLanguage: ['tr'],
+      keywords: keywordsList
     },
     {
-      '@type': 'LocalBusiness',
+      '@type': ['LocalBusiness', 'RecyclingCenter'],
       name: schemaName,
+      alternateName: 'Serdar Metal Çelik',
       image: ogImageUrl,
       url: canonicalUrl,
       description,
+      keywords: keywordsList,
+      knowsAbout: keywordsList,
       telephone: siteConfig.contact.phone,
       email: siteConfig.contact.email,
       areaServed: 'Trakya',
       availableLanguage: ['tr'],
       hasMap: firstLocation?.mapOpenUrl,
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Hurda alımı ve geri dönüşüm hizmetleri',
+        itemListElement: serviceCatalogNames.map((serviceName) => ({
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: serviceName
+          }
+        }))
+      },
       address: {
         '@type': 'PostalAddress',
         streetAddress: firstLocation?.address ?? '',
@@ -82,7 +113,9 @@ const structuredData = {
     <link rel="icon" href={`${normalizedBaseUrl}favicon.ico`} />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
     <meta name="robots" content="index,follow" />
+    <meta name="googlebot" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
     <link rel="canonical" href={canonicalUrl} />
     <link rel="alternate" hrefLang="tr" href={trUrl} />
     <link rel="alternate" hrefLang="x-default" href={trUrl} />
