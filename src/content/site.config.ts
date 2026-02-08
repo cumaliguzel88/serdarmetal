@@ -7,7 +7,7 @@ export const siteConfig = {
     whatsapp: '+90 (539) 811 89 10',
     whatsappPhone: '905398118910',
     email: 'info@serdarmetal.com',
-    hours: 'Cumartesi 08:30 - 18:00',
+    hours: 'Pazartesi - Cumartesi 08:30 - 18:00 (Pazar kapalı)',
     locations: [
       {
         id: 'tekirdag-ergene',
