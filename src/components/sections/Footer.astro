@@ -14,7 +14,7 @@ const { t, config } = Astro.props;
 
 <footer class="border-t border-[#8d001f] bg-[linear-gradient(100deg,#8f001f_0%,#b3002d_60%,#8f001f_100%)] py-12 sm:py-14">
   <Container>
-    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
       <div class="space-y-3">
         <div class="flex items-center gap-3">
           <Image
@@ -51,24 +51,8 @@ const { t, config } = Astro.props;
             <a href={`mailto:${config.contact.email}`} class="transition hover:text-white">{config.contact.email}</a>
           </li>
           <li>{config.contact.hours}</li>
-        </ul>
-      </div>
-
-      <div class="space-y-3">
-        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-white/70">{t('footer.mapTitle')}</p>
-        <ul class="space-y-2 text-sm text-white/85">
           {config.contact.locations.map((location) => (
-            <li class="rounded-xl border border-white/25 bg-white/10 px-3 py-2 backdrop-blur-sm">
-              <p class="font-medium text-white">{location.label}</p>
-              <a
-                href={location.mapOpenUrl}
-                target="_blank"
-                rel="noreferrer"
-                class="mt-1 inline-block text-white/90 transition hover:text-white"
-              >
-                {t('contact.openMap')}
-              </a>
-            </li>
+            <li>{location.address}</li>
           ))}
         </ul>
       </div>

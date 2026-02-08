@@ -18,8 +18,8 @@ const { t, config, whatsappHref } = Astro.props;
     <div class="space-y-8">
       <SectionTitle eyebrow={t('contact.eyebrow')} title={t('contact.title')} description={t('contact.description')} />
 
-      <div class="grid gap-5 lg:grid-cols-[0.95fr_1.05fr]">
-        <div data-animate-item class="rounded-3xl border border-slate-200 bg-white p-6 shadow-[0_12px_24px_rgba(148,163,184,0.14)] sm:p-7">
+      <div data-animate-item class="rounded-3xl border border-slate-200 bg-white p-6 shadow-[0_12px_24px_rgba(148,163,184,0.14)] sm:p-7">
+        <div class="grid gap-5 md:grid-cols-2">
           <dl class="space-y-4 text-sm text-slate-700 sm:text-base">
             <div>
               <dt class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{t('contact.labels.phone')}</dt>
@@ -28,14 +28,6 @@ const { t, config, whatsappHref } = Astro.props;
             <div>
               <dt class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{t('contact.labels.whatsapp')}</dt>
               <dd class="mt-1 font-medium text-slate-900">{config.contact.whatsapp}</dd>
-            </div>
-            <div>
-              <dt class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{t('contact.labels.address')}</dt>
-              <dd class="mt-1 font-medium text-slate-900">
-                {config.contact.locations.map((location) => (
-                  <p>{location.address}</p>
-                ))}
-              </dd>
             </div>
             <div>
               <dt class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{t('contact.labels.email')}</dt>
@@ -47,38 +39,21 @@ const { t, config, whatsappHref } = Astro.props;
             </div>
           </dl>
 
-          <div class="mt-6 flex flex-wrap gap-3">
-            <Button href={config.contact.phoneHref} ariaLabel={t('contact.labels.phone')}>{t('contact.ctaCall')}</Button>
-            <Button href={whatsappHref} variant="whatsapp" ariaLabel={t('contact.labels.whatsapp')}>
-              {t('contact.ctaWhatsapp')}
-            </Button>
+          <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+            <p class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{t('contact.labels.address')}</p>
+            <div class="mt-2 space-y-2">
+              {config.contact.locations.map((location) => (
+                <p class="text-sm font-medium leading-7 text-slate-900 sm:text-base">{location.address}</p>
+              ))}
+            </div>
           </div>
         </div>
 
-        <div data-animate-item class="rounded-3xl border border-dashed border-slate-300 bg-slate-50 p-4 sm:p-5">
-          <div class="space-y-4">
-            {config.contact.locations.map((location) => (
-              <article class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_8px_20px_rgba(148,163,184,0.14)]">
-                <iframe
-                  title={`${t('contact.mapCardTitle')} - ${location.label}`}
-                  src={location.mapEmbedUrl}
-                  loading="lazy"
-                  class="h-48 w-full border-0 sm:h-52"
-                  referrerpolicy="no-referrer-when-downgrade"
-                  allowfullscreen
-                ></iframe>
-                <div class="flex items-center justify-between gap-3 px-4 py-3">
-                  <div>
-                    <p class="text-sm font-semibold text-slate-900">{location.label}</p>
-                    <p class="text-xs text-slate-500">{location.address}</p>
-                  </div>
-                  <Button href={location.mapOpenUrl} variant="secondary" class="text-xs" ariaLabel={t('contact.openMap')}>
-                    {t('contact.openMap')}
-                  </Button>
-                </div>
-              </article>
-            ))}
-          </div>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <Button href={config.contact.phoneHref} ariaLabel={t('contact.labels.phone')}>{t('contact.ctaCall')}</Button>
+          <Button href={whatsappHref} variant="whatsapp" ariaLabel={t('contact.labels.whatsapp')}>
+            {t('contact.ctaWhatsapp')}
+          </Button>
         </div>
       </div>
     </div>
