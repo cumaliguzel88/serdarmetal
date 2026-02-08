@@ -10,7 +10,6 @@ function revealWithoutMotion() {
   items.forEach((item) => {
     item.style.opacity = '1';
     item.style.transform = 'none';
-    item.style.filter = 'none';
   });
 }
 
@@ -29,22 +28,24 @@ export function initScrollAnimations() {
       return;
     }
 
-    gsap.set(items, { opacity: 0, y: 48, filter: 'blur(6px)' });
+    if (group.getBoundingClientRect().top < window.innerHeight * 0.75) {
+      gsap.set(items, { opacity: 1, y: 0 });
+      return;
+    }
+
+    gsap.set(items, { opacity: 0, y: 40 });
 
     gsap.to(items, {
       opacity: 1,
       y: 0,
-      filter: 'blur(0px)',
-      duration: 0.95,
+      duration: 0.7,
       ease: 'power2.out',
-      stagger: 0.15,
+      stagger: 0.1,
       scrollTrigger: {
         trigger: group,
-        start: 'top 92%',
+        start: 'top 90%',
         once: true
       }
     });
   });
-
-  ScrollTrigger.refresh();
 }

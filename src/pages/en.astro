@@ -1,13 +1,16 @@
 ---
+import en from '../content/i18n/en.json';
+
 const homePath = `${import.meta.env.BASE_URL}/`.replace(/\/+$/, '/');
+const pageTitle = en.meta.title;
 ---
 
 <!doctype html>
-<html lang="tr">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="refresh" content={`0;url=${homePath}`} />
-    <title>Yonlendiriliyor</title>
+    <title>{pageTitle}</title>
     <link rel="canonical" href={homePath} />
     <meta name="robots" content="noindex,nofollow" />
   </head>

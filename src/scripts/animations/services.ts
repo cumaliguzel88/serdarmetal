@@ -1,5 +1,3 @@
-import { gsap } from 'gsap';
-
 type DetailPayload = {
   title: string;
   summary: string;
@@ -32,6 +30,24 @@ function isReducedMotionPreferred() {
 
 function createParagraphs(lines: string[]) {
   return lines.map((line) => `<p class=\"text-sm leading-7 text-slate-700 sm:text-base\">${line}</p>`).join('');
+}
+
+function animateHeight(panel: HTMLElement, fromHeight: number, toHeight: number) {
+  const animation = panel.animate(
+    [{ height: `${fromHeight}px` }, { height: `${toHeight}px` }],
+    { duration: 260, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' }
+  );
+
+  animation.onfinish = () => {
+    panel.style.height = 'auto';
+  };
+}
+
+function animateContent(content: HTMLElement) {
+  content.animate(
+    [{ opacity: 0, transform: 'translateY(8px)' }, { opacity: 1, transform: 'translateY(0)' }],
+    { duration: 220, easing: 'cubic-bezier(0.16, 1, 0.3, 1)' }
+  );
 }
 
 export function initServiceAnimations() {
@@ -69,13 +85,8 @@ export function initServiceAnimations() {
     }
 
     const targetHeight = panel.scrollHeight;
-    gsap.fromTo(
-      panel,
-      { height: currentHeight },
-      { height: targetHeight, duration: 0.28, ease: 'power2.out', onComplete: () => (panel.style.height = 'auto') }
-    );
-
-    gsap.fromTo(content, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.24, ease: 'power2.out' });
+    animateHeight(panel, currentHeight, targetHeight);
+    animateContent(content);
   };
 
   cards.forEach((card) => {
@@ -84,16 +95,4 @@ export function initServiceAnimations() {
       renderPanel(card);
     });
   });
-
-  const hasFinePointer = window.matchMedia('(pointer:fine)').matches;
-  if (hasFinePointer && !reducedMotion) {
-    cards.forEach((card) => {
-      card.addEventListener('mouseenter', () => {
-        gsap.to(card, { y: -4, boxShadow: '0 18px 40px rgba(148, 163, 184, 0.25)', duration: 0.2, ease: 'power2.out' });
-      });
-      card.addEventListener('mouseleave', () => {
-        gsap.to(card, { y: 0, boxShadow: '0 8px 20px rgba(148, 163, 184, 0.14)', duration: 0.2, ease: 'power2.out' });
-      });
-    });
-  }
 }

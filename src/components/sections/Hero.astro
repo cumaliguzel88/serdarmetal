@@ -19,18 +19,17 @@ const { t, config, whatsappHref } = Astro.props;
 <section
   id="hero"
   class="scroll-mt-28 bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(255,251,252,1)_44%,rgba(255,255,255,1)_100%)] py-16 sm:py-20 lg:py-24"
-  data-animate-group
 >
   <Container>
     <div class="grid gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-center">
       <div class="space-y-7">
-        <p class="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--color-accent)]" data-animate-item>{t('hero.eyebrow')}</p>
-        <h1 class="font-display text-3xl font-bold leading-tight tracking-tight text-slate-900 sm:text-4xl lg:text-5xl" data-animate-item>
+        <p class="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--color-accent)]">{t('hero.eyebrow')}</p>
+        <h1 class="font-display text-3xl font-bold leading-tight tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
           {t('hero.title')}
         </h1>
-        <p class="max-w-2xl text-base leading-8 text-slate-600 sm:text-lg" data-animate-item>{t('hero.description')}</p>
+        <p class="max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">{t('hero.description')}</p>
 
-        <div class="flex flex-wrap items-center gap-3" data-animate-item>
+        <div class="flex flex-wrap items-center gap-3">
           <Button href={config.contact.phoneHref} ariaLabel={t('contact.labels.phone')}>
             {t('hero.ctaCall')}
           </Button>
@@ -40,18 +39,19 @@ const { t, config, whatsappHref } = Astro.props;
         </div>
       </div>
 
-      <div class="space-y-4" data-animate-item>
+      <div class="mt-80 space-y-4 md:mt-24 lg:mt-0">
         <div class="rounded-3xl border border-dashed border-slate-300 bg-[linear-gradient(150deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_55%,rgba(255,237,242,0.65)_100%)] p-3 shadow-[0_20px_40px_rgba(148,163,184,0.2)] sm:p-4 lg:p-5">
           <Image
             src={heroImage}
             alt={t('hero.mediaAlt')}
             class="aspect-[4/3] w-full rounded-2xl border border-slate-200/80 object-cover lg:aspect-[4/3]"
             format="webp"
-            quality={74}
-            widths={[560, 760, 960, 1280]}
-            sizes="(max-width: 1023px) 100vw, 56vw"
+            quality={62}
+            widths={[480, 720, 960]}
+            sizes="(max-width: 1023px) calc(100vw - 2.75rem), 56vw"
             loading="eager"
             fetchpriority="high"
+            decoding="sync"
           />
         </div>
 
