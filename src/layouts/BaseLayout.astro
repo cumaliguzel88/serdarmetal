@@ -31,6 +31,8 @@ const serviceCatalogNames = [
   'Hurda alımı',
   'Hurda satımı',
   'Trakya hurda alımı',
+  'Marmara hurda alımı',
+  'Ege hurda alımı',
   'Demir hurda alımı',
   'Bakır hurda alımı',
   'Alüminyum hurda alımı',
@@ -44,7 +46,7 @@ const structuredData = {
     {
       '@type': 'WebSite',
       name: schemaName,
-      alternateName: ['Serdar Metal', 'Serdar Metal Çelik'],
+      alternateName: ['Serdar Metal Geri Dönüşüm', 'Serdar Metal Çelik'],
       url: new URL('', canonicalBase).toString(),
       inLanguage: ['tr'],
       keywords: keywordsList
@@ -52,7 +54,7 @@ const structuredData = {
     {
       '@type': ['LocalBusiness', 'RecyclingCenter'],
       name: schemaName,
-      alternateName: 'Serdar Metal Çelik',
+      alternateName: ['Serdar Metal Geri Dönüşüm', 'Serdar Metal Çelik'],
       image: ogImageUrl,
       url: canonicalUrl,
       description,
@@ -60,7 +62,7 @@ const structuredData = {
       knowsAbout: keywordsList,
       telephone: siteConfig.contact.phone,
       email: siteConfig.contact.email,
-      areaServed: 'Trakya',
+      areaServed: ['Trakya', 'Marmara', 'Ege'],
       availableLanguage: ['tr'],
       hasMap: firstLocation?.mapOpenUrl,
       hasOfferCatalog: {
@@ -82,7 +84,7 @@ const structuredData = {
       openingHoursSpecification: [
         {
           '@type': 'OpeningHoursSpecification',
-          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+          dayOfWeek: ['Saturday'],
           opens: '08:30',
           closes: '18:00'
         }
@@ -121,7 +123,7 @@ const structuredData = {
     <link rel="alternate" hrefLang="x-default" href={trUrl} />
 
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Serdar Metal" />
+    <meta property="og:site_name" content="Serdar Metal Geri Dönüşüm" />
     <meta property="og:locale" content={ogLocale} />
     <meta property="og:title" content={ogTitle} />
     <meta property="og:description" content={ogDescription} />

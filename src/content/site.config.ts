@@ -7,25 +7,16 @@ export const siteConfig = {
     whatsapp: '+90 (539) 811 89 10',
     whatsappPhone: '905398118910',
     email: 'info@serdarmetal.com',
-    hours: 'Hafta içi 08:30 - 18:00',
+    hours: 'Cumartesi 08:30 - 18:00',
     locations: [
       {
-        id: 'istanbul',
-        label: 'Istanbul / Hadimkoy',
-        address: 'Istanbul/Hadimkoy',
+        id: 'tekirdag-ergene',
+        label: 'Velimeşe Yulaflı OSB Tekirdağ/Ergene',
+        address: 'Velimeşe Yulaflı OSB Tekirdağ/Ergene',
         mapOpenUrl:
-          'https://www.google.com/maps/search/?api=1&query=Istanbul+Hadimkoy',
+          'https://www.google.com/maps/search/?api=1&query=Velime%C5%9Fe+Yulafl%C4%B1+OSB+Tekirda%C4%9F%2FErgene',
         mapEmbedUrl:
-          'https://maps.google.com/maps?q=Istanbul%20Hadimkoy&t=&z=13&ie=UTF8&iwloc=&output=embed'
-      },
-      {
-        id: 'tekirdag',
-        label: 'Velimese Yulafli OSB',
-        address: 'Velimese Yulafli OSB Tekirdag/Ergene',
-        mapOpenUrl:
-          'https://www.google.com/maps/search/?api=1&query=Velimese+Yulafli+OSB+Tekirdag+Ergene',
-        mapEmbedUrl:
-          'https://maps.google.com/maps?q=Velimese%20Yulafli%20OSB%20Tekirdag%20Ergene&t=&z=13&ie=UTF8&iwloc=&output=embed'
+          'https://maps.google.com/maps?q=Velime%C5%9Fe%20Yulafl%C4%B1%20OSB%20Tekirda%C4%9F%2FErgene&t=&z=13&ie=UTF8&iwloc=&output=embed'
       }
     ]
   },
