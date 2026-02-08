@@ -12,7 +12,7 @@ interface Props {
 const { t, phoneHref } = Astro.props;
 ---
 
-<header class="sticky top-0 z-50 overflow-visible border-b border-[#8d001f] bg-[linear-gradient(90deg,#8f001f_0%,#b3002d_52%,#8f001f_100%)] shadow-[0_10px_30px_rgba(114,0,28,0.36)]">
+<header class="fixed inset-x-0 top-0 z-50 overflow-visible border-b border-[#8d001f] bg-[linear-gradient(90deg,#8f001f_0%,#b3002d_52%,#8f001f_100%)] shadow-[0_10px_30px_rgba(114,0,28,0.36)]">
   <Container>
     <div class="flex min-h-[4.4rem] items-center justify-between gap-1 sm:min-h-[5.5rem] sm:gap-3 lg:min-h-[6rem] lg:gap-4">
       <a href="#hero" class="inline-flex items-center gap-1.5 sm:gap-3" aria-label={t('site.name')}>
