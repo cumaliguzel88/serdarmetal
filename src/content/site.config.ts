@@ -20,7 +20,7 @@ export const siteConfig = {
       }
     ]
   },
-  canonicalBase: 'https://cumaliguzel88.github.io/serdarmetal/'
+  canonicalBase: 'https://serdarmetal.com/'
 };
 
 export type SiteConfig = typeof siteConfig;

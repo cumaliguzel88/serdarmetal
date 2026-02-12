@@ -6,8 +6,8 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://cumaliguzel88.github.io',
-  base: '/serdarmetal/',
+  site: 'https://serdarmetal.com',
+  base: '/',
   integrations: [
     sitemap({
       filter: (page) => !page.endsWith('/en/')
