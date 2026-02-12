@@ -23,6 +23,7 @@ const ogImageUrl = new URL(ogImagePath, canonicalBase).toString();
 const ogLocale = 'tr_TR';
 const schemaName = 'Serdar Metal Geri Dönüşüm';
 const firstLocation = siteConfig.contact.locations[0];
+const businessAliases = ['Serdar Metal Geri Dönüşüm', 'Serdar Metal', 'Serdar Hurda', 'Serdar Metal Hurda Alım Satım'];
 const keywordsList = keywords
   .split(',')
   .map((term) => term.trim())
@@ -31,8 +32,15 @@ const serviceCatalogNames = [
   'Hurda alımı',
   'Hurda satımı',
   'Trakya hurda alımı',
-  'Marmara hurda alımı',
-  'Ege hurda alımı',
+  'İstanbul hurda alımı',
+  'Tekirdağ hurda alımı',
+  'Ergene hurda alımı',
+  'Kocaeli hurda alımı',
+  'Bursa hurda alımı',
+  'Çanakkale hurda alımı',
+  'Gebze hurda alımı',
+  'İzmir hurda alımı',
+  'Edirne hurda alımı',
   'Demir hurda alımı',
   'Bakır hurda alımı',
   'Alüminyum hurda alımı',
@@ -46,7 +54,7 @@ const structuredData = {
     {
       '@type': 'WebSite',
       name: schemaName,
-      alternateName: ['Serdar Metal Geri Dönüşüm', 'Serdar Metal Çelik'],
+      alternateName: businessAliases,
       url: new URL('', canonicalBase).toString(),
       inLanguage: ['tr'],
       keywords: keywordsList
@@ -54,7 +62,7 @@ const structuredData = {
     {
       '@type': ['LocalBusiness', 'RecyclingCenter'],
       name: schemaName,
-      alternateName: ['Serdar Metal Geri Dönüşüm', 'Serdar Metal Çelik'],
+      alternateName: businessAliases,
       image: ogImageUrl,
       url: canonicalUrl,
       description,
@@ -62,7 +70,14 @@ const structuredData = {
       knowsAbout: keywordsList,
       telephone: siteConfig.contact.phone,
       email: siteConfig.contact.email,
-      areaServed: ['Trakya', 'Marmara', 'Ege'],
+      areaServed: siteConfig.serviceAreas.map((areaName) => ({
+        '@type': 'AdministrativeArea',
+        name: areaName
+      })),
+      serviceArea: siteConfig.serviceAreas.map((areaName) => ({
+        '@type': 'AdministrativeArea',
+        name: areaName
+      })),
       availableLanguage: ['tr'],
       hasMap: firstLocation?.mapOpenUrl,
       hasOfferCatalog: {

@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://cumaliguzel88.github.io/serdarmetal/sitemap-index.xml
+Sitemap: https://serdarmetal.com/sitemap-index.xml
+Sitemap: https://serdarmetal.com/sitemap-0.xml

@@ -1,6 +1,7 @@
 export const siteConfig = {
   defaultLang: 'tr',
   languages: ['tr'] as const,
+  serviceAreas: ['Trakya', 'İstanbul', 'Tekirdağ', 'Ergene', 'Kocaeli', 'Bursa', 'Çanakkale', 'Gebze', 'İzmir', 'Edirne'],
   contact: {
     phone: '+90 (539) 811 89 10',
     phoneHref: 'tel:+905398118910',
