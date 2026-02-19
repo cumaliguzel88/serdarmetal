@@ -1,9 +1,9 @@
 ---
-import '../styles/global.css';
-import { siteConfig } from '../content/site.config';
+import "../styles/global.css";
+import { siteConfig } from "../content/site.config";
 
 interface Props {
-  lang: 'tr';
+  lang: "tr";
   title: string;
   description: string;
   keywords: string;
@@ -13,54 +13,68 @@ interface Props {
   canonicalBase: string;
 }
 
-const { lang, title, description, keywords, ogTitle, ogDescription, ogImage, canonicalBase } = Astro.props;
+const {
+  lang,
+  title,
+  description,
+  keywords,
+  ogTitle,
+  ogDescription,
+  ogImage,
+  canonicalBase,
+} = Astro.props;
 const baseUrl = import.meta.env.BASE_URL;
-const normalizedBaseUrl = baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`;
-const canonicalUrl = new URL('', canonicalBase).toString();
-const trUrl = new URL('', canonicalBase).toString();
-const ogImagePath = ogImage.startsWith('/') ? ogImage.slice(1) : ogImage;
+const normalizedBaseUrl = baseUrl.endsWith("/") ? baseUrl : `${baseUrl}/`;
+const canonicalUrl = new URL("", canonicalBase).toString();
+const trUrl = new URL("", canonicalBase).toString();
+const ogImagePath = ogImage.startsWith("/") ? ogImage.slice(1) : ogImage;
 const ogImageUrl = new URL(ogImagePath, canonicalBase).toString();
-const ogLocale = 'tr_TR';
-const schemaName = 'Serdar Metal Geri Dönüşüm';
+const ogLocale = "tr_TR";
+const schemaName = "Serdar Metal Geri Dönüşüm";
 const firstLocation = siteConfig.contact.locations[0];
-const businessAliases = ['Serdar Metal Geri Dönüşüm', 'Serdar Metal', 'Serdar Hurda', 'Serdar Metal Hurda Alım Satım'];
+const businessAliases = [
+  "Serdar Metal Geri Dönüşüm",
+  "Serdar Metal",
+  "Serdar Hurda",
+  "Serdar Metal Hurda Alım Satım",
+];
 const keywordsList = keywords
-  .split(',')
+  .split(",")
   .map((term) => term.trim())
   .filter((term) => term.length > 0);
 const serviceCatalogNames = [
-  'Hurda alımı',
-  'Hurda satımı',
-  'Trakya hurda alımı',
-  'İstanbul hurda alımı',
-  'Tekirdağ hurda alımı',
-  'Ergene hurda alımı',
-  'Kocaeli hurda alımı',
-  'Bursa hurda alımı',
-  'Çanakkale hurda alımı',
-  'Gebze hurda alımı',
-  'İzmir hurda alımı',
-  'Edirne hurda alımı',
-  'Demir hurda alımı',
-  'Bakır hurda alımı',
-  'Alüminyum hurda alımı',
-  'Krom hurda alımı',
-  'Tesis sökümü'
+  "Hurda alımı",
+  "Hurda satımı",
+  "Trakya hurda alımı",
+  "İstanbul hurda alımı",
+  "Tekirdağ hurda alımı",
+  "Ergene hurda alımı",
+  "Kocaeli hurda alımı",
+  "Bursa hurda alımı",
+  "Çanakkale hurda alımı",
+  "Gebze hurda alımı",
+  "İzmir hurda alımı",
+  "Edirne hurda alımı",
+  "Demir hurda alımı",
+  "Bakır hurda alımı",
+  "Alüminyum hurda alımı",
+  "Krom hurda alımı",
+  "Tesis sökümü",
 ];
 
 const structuredData = {
-  '@context': 'https://schema.org',
-  '@graph': [
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      '@type': 'WebSite',
+      "@type": "WebSite",
       name: schemaName,
       alternateName: businessAliases,
-      url: new URL('', canonicalBase).toString(),
-      inLanguage: ['tr'],
-      keywords: keywordsList
+      url: new URL("", canonicalBase).toString(),
+      inLanguage: ["tr"],
+      keywords: keywordsList,
     },
     {
-      '@type': ['LocalBusiness', 'RecyclingCenter'],
+      "@type": ["LocalBusiness", "RecyclingCenter"],
       name: schemaName,
       alternateName: businessAliases,
       image: ogImageUrl,
@@ -71,55 +85,76 @@ const structuredData = {
       telephone: siteConfig.contact.phone,
       email: siteConfig.contact.email,
       areaServed: siteConfig.serviceAreas.map((areaName) => ({
-        '@type': 'AdministrativeArea',
-        name: areaName
+        "@type": "AdministrativeArea",
+        name: areaName,
       })),
       serviceArea: siteConfig.serviceAreas.map((areaName) => ({
-        '@type': 'AdministrativeArea',
-        name: areaName
+        "@type": "AdministrativeArea",
+        name: areaName,
       })),
-      availableLanguage: ['tr'],
+      availableLanguage: ["tr"],
       hasMap: firstLocation?.mapOpenUrl,
       hasOfferCatalog: {
-        '@type': 'OfferCatalog',
-        name: 'Hurda alımı ve geri dönüşüm hizmetleri',
+        "@type": "OfferCatalog",
+        name: "Hurda alımı ve geri dönüşüm hizmetleri",
         itemListElement: serviceCatalogNames.map((serviceName) => ({
-          '@type': 'Offer',
+          "@type": "Offer",
           itemOffered: {
-            '@type': 'Service',
-            name: serviceName
-          }
-        }))
+            "@type": "Service",
+            name: serviceName,
+          },
+        })),
       },
       address: {
-        '@type': 'PostalAddress',
-        streetAddress: firstLocation?.address ?? '',
-        addressCountry: 'TR'
+        "@type": "PostalAddress",
+        streetAddress: firstLocation?.address ?? "",
+        addressCountry: "TR",
       },
       openingHoursSpecification: [
         {
-          '@type': 'OpeningHoursSpecification',
-          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-          opens: '08:30',
-          closes: '18:00'
-        }
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+          ],
+          opens: "08:30",
+          closes: "18:00",
+        },
       ],
       contactPoint: [
         {
-          '@type': 'ContactPoint',
+          "@type": "ContactPoint",
           telephone: siteConfig.contact.phone,
-          contactType: 'customer service',
-          availableLanguage: ['tr']
-        }
-      ]
-    }
-  ]
+          contactType: "customer service",
+          availableLanguage: ["tr"],
+        },
+      ],
+    },
+  ],
 };
 ---
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang={lang}>
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-17964243915"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "AW-17964243915");
+    </script>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
@@ -127,12 +162,18 @@ const structuredData = {
     <meta name="author" content="Serdar Metal Geri Dönüşüm" />
     <meta name="format-detection" content="telephone=yes" />
     <link rel="icon" href={`${normalizedBaseUrl}favicon.ico`} />
-    <link rel="apple-touch-icon" href={`${normalizedBaseUrl}apple-touch-icon.png`} />
+    <link
+      rel="apple-touch-icon"
+      href={`${normalizedBaseUrl}apple-touch-icon.png`}
+    />
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords} />
     <meta name="robots" content="index,follow" />
-    <meta name="googlebot" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+    <meta
+      name="googlebot"
+      content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
+    />
     <link rel="canonical" href={canonicalUrl} />
     <link rel="alternate" hrefLang="tr" href={trUrl} />
     <link rel="alternate" hrefLang="x-default" href={trUrl} />
@@ -149,7 +190,8 @@ const structuredData = {
     <meta name="twitter:title" content={ogTitle} />
     <meta name="twitter:description" content={ogDescription} />
     <meta name="twitter:image" content={ogImageUrl} />
-    <script type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)}
+    ></script>
   </head>
   <body class="bg-white text-slate-900 antialiased">
     <slot />
